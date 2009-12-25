@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/method.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --><!-- InstanceParam name="OptionalSeeAlso" type="boolean" value="false" --><!-- InstanceParam name="OptionalNotes" type="boolean" value="false" -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Method summary <!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody">
+  <h1><!-- InstanceBeginEditable name="MethodName" -->setTimeScale()<!-- InstanceEndEditable --></h1>
+  <h4>Availability</h4>
+  <!-- InstanceBeginEditable name="DetailAvailability" -->
+  <p>AS2 and AS3.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Usage</h4>
+  <pre><!-- InstanceBeginEditable name="DetailUsage" -->Tweener.setTimeScale(scale:Number);<!-- InstanceEndEditable --></pre>
+  <h4>Parameters</h4>
+  <!-- InstanceBeginEditable name="DetailParameters" -->
+  <p><code>scale</code>:Number &mdash; Any number higher than 0. The default value (for a normal time scale) is 1; if this parameter is omitted, it is assumed to be 1.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Description</h4>
+  <!-- InstanceBeginEditable name="DetailDescription" -->
+  <p>Sets the global time scale for transition execution  (both the time and delay expected for tweens). This works by changing  the time scale in which the tweening engine relies; when this method is  called, all existing tweenings are updated, and new ones will also follow the new time scale. The scale is an absolute value. </p>
+  <p>The  default value is 1, which assumes a normal time scale. A value of 2  puts the tweening engine in a fast-forward mode, where all tweens take  half the original time to complete. A value of 0.5 makes all tweenings  take two times the original time, resulting in a slow-motion appearance.</p>
+  <p>This  method works globally, so it should only be used on very specific  cases. It was implemented mainly for debugging purposes; for example,  if you have a long animation and you don't want to wait for it to  complete, you can set the time scale to a high number before it starts,  and then set it back to 1 when it ends. You can also attach that toggle  to specific keys, or only use it when testing locally. Of course, you  can do little tweaks to your movie's general time scale, but it's not  recommended as it works on all your transitions as a whole.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Returns</h4>
+  <!-- InstanceBeginEditable name="DetailReturns" -->
+  <p>Nothing.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Examples</h4>
+  <!-- InstanceBeginEditable name="DetailExamples" -->
+  <pre>// Makes your movie tweenings go into turbo mode
+Tweener.setTimeScale(10);</pre>
+  <pre>// Makes all animation slower only when you're testing on the Flash IDE
+if (System.capabilities.playerType == "External") Tweener.setTimeScale(0.5)</pre>
+  <pre>// Create a toggle that makes your movie go faster when SHIFT is pressed
+Key.addListener(this);
+this.onKeyDown = function() {
+	if (Key.isDown(Key.SHIFT)) Tweener.setTimeScale(10);
+}
+this.onKeyUp = function() {
+	if (!Key.isDown(Key.SHIFT)) Tweener.setTimeScale(1);
+};</pre>
+  <!-- InstanceEndEditable -->
+  
+  </div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/method.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --><!-- InstanceParam name="OptionalSeeAlso" type="boolean" value="true" --><!-- InstanceParam name="OptionalNotes" type="boolean" value="false" -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Method summary <!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody">
+  <h1><!-- InstanceBeginEditable name="MethodName" -->addCaller()<!-- InstanceEndEditable --></h1>
+  <h4>Availability</h4>
+  <!-- InstanceBeginEditable name="DetailAvailability" -->
+  <p>AS2 and AS3.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Usage</h4>
+  <pre><!-- InstanceBeginEditable name="DetailUsage" -->Tweener.addCaller(target:Object, tweeningParameters:Object):Void<!-- InstanceEndEditable --></pre>
+  <h4>Parameters</h4>
+  <!-- InstanceBeginEditable name="DetailParameters" -->
+  <p><code>target</code>:Object &mdash; Any object that will be called successively. These objects are  usually <code>MovieClip</code>, <code>TextField</code>, or <code>Sound</code> instances, or any other custom  object that you want to run a given function in it.</p>
+  <p><span class="bodyText"><code>tweeningParameters</code></span>:Object &mdash; An object containing some built-in Tweener properties used when defining <a href="../parameters/index.html">tweening parameters</a>.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Description</h4>
+  <!-- InstanceBeginEditable name="DetailDescription" -->
+  <p>This method is used to call a function successively inside of an object an specific number of times, for an specific time. The big advantage is that it allows it to use different transitions when doing so, changing the interval between each function call in the process. </p>
+  <p>Like <code><a href="Tweener_addTween.html">addTween</a></code>, it has a pretty loose syntax, with a few hard-coded parameters,  allowing for a plethora of different transition options to be declared.</p>
+  <p>There are many different options available, so check the documentation for each different feature on the <a href="../parameters/index.html">tweening parameters</a> page, and see other uncommon properties you can use on the <a href="../properties/index.html">special properties</a> page.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Returns</h4>
+  <!-- InstanceBeginEditable name="DetailReturns" -->
+  <p>Nothing.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Examples</h4>
+  <!-- InstanceBeginEditable name="DetailExamples" -->
+  <pre>// Call a function 10 times during 5 seconds
+this.warn = function() {
+	trace(&quot;function is called&quot;.);
+};
+Tweener.addCaller(myMovieClip, {onUpdate:this.warn, time:5, count:10});</pre>
+  <pre>// Call a function 10 times during 5 seconds, going slowly at first, but then faster as time progresses
+this.warn = function() {
+	trace(&quot;function is called&quot;.);
+};
+Tweener.addCaller(myMovieClip, {onUpdate:this.warn, time:5, count:10, transition:&quot;easeinquad&quot;});</pre>
+  <pre>// Blink a movieclip faster and faster, waiting at least one frame until calling the function again
+this.blink = function() {
+	this._visible = !this._visible;
+
+};
+Tweener.addCaller(myMovieClip, {onUpdate:this.blink, time:5, count:10, transition:&quot;easeinquad&quot;, waitFrames:true});</pre>
+  <!-- InstanceEndEditable -->
+  
+  
+  <h4>See also</h4>
+  <!-- InstanceBeginEditable name="DetailsSeeAlso" -->
+  <p><a href="Tweener_addTween.html">addTween</a>, <a href="../parameters/index.html">Tweening parameters</a></p>
+  <!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

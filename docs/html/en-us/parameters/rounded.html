@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/tweeningparameter.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --><!-- InstanceParam name="OptionalSeeAlso" type="boolean" value="false" --><!-- InstanceParam name="OptionalNotes" type="boolean" value="false" -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Reference &raquo; Tweening Parameters<!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody">
+  <h1><!-- InstanceBeginEditable name="ParameterName" -->rounded<!-- InstanceEndEditable --></h1>
+  <h4>Availability</h4>
+  <!-- InstanceBeginEditable name="DetailAvailability" -->
+  <p>AS2 and AS3.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Usage</h4>
+  <pre><!-- InstanceBeginEditable name="DetailUsage" -->... rounded:value<!-- InstanceEndEditable -->, ...</pre>
+  <h4>Parameters</h4>
+  <!-- InstanceBeginEditable name="DetailParameters" -->
+  <p><code>value</code>:Boolean &mdash; Whether or not the values for this tweening must be rounded before  being applied to their respective properties. This is useful, for  example, when sliding objects that must be positioned on round pixels,  like <code>TextField</code> instances that use pixel fonts; its <code>x</code> and y  properties need to be rounded all the time to avoid blurring the text.  It's also useful when tweening text on Flash Lite: since the  current Flash Lite players render text with different space between  each letter depending on the <code>TextField</code> position, individual letters  seem to shake in relation to each other when moving text horizontally if you're not using rounded positions only. This option acts on all properties for that specific tween. The default value for this parameter (when omitted) is <code>false</code>.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Examples</h4>
+  <!-- InstanceBeginEditable name="DetailExamples" -->
+  <pre>// Slides a TextField to _x = 100, _y = 100, in 1 second, moving on rounded positions only (AS2)
+Tweener.addTween(myTextField, {_x:100, _y:100, time:1, rounded:true});</pre>
+  <!-- InstanceEndEditable -->
+  
+  </div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

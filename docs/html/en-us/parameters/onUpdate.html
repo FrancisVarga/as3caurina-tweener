@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/tweeningparameter.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --><!-- InstanceParam name="OptionalSeeAlso" type="boolean" value="true" --><!-- InstanceParam name="OptionalNotes" type="boolean" value="true" -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Reference &raquo; Tweening Parameters<!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody">
+  <h1><!-- InstanceBeginEditable name="ParameterName" -->onUpdate<!-- InstanceEndEditable --></h1>
+  <h4>Availability</h4>
+  <!-- InstanceBeginEditable name="DetailAvailability" -->
+  <p>AS2 and AS3.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Usage</h4>
+  <pre><!-- InstanceBeginEditable name="DetailUsage" -->... onUpdate:value<!-- InstanceEndEditable -->, ...</pre>
+  <h4>Parameters</h4>
+  <!-- InstanceBeginEditable name="DetailParameters" -->
+  <p><code>value</code>:Function &mdash; A function that is called every time a tweening updates its properties. The function scope (in which the event is executed) is the target object itself, unless specified by the <code><a href="onUpdateScope.html">onUpdateScope</a></code> parameter.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Examples</h4>
+  <!-- InstanceBeginEditable name="DetailExamples" -->
+  <pre>// Moves a movieclip, and reports its position in the process (AS2)
+reportPosition = function() {
+	trace (&quot;My _x is now &quot; + this._x);
+};
+Tweener.addTween(myMovieClip, {_x:100, time:1, onUpdate:reportPosition});</pre>
+  <pre>// Similarly, with an anonymous function
+Tweener.addTween(myMovieClip, {_x:100, time:1, onUpdate:function() { trace (&quot;My _x is now &quot; + this._x); }});</pre>
+  <!-- InstanceEndEditable -->
+  
+  <h4><a name="notes">Notes</a></h4>
+  <!-- InstanceBeginEditable name="DetailsNotes" -->
+  <p>The reference passed to this property is a reference to the function <strong>only</strong>. This roughly means you do <strong>not</strong> use any kind of parenthesis or parameters when passing the function you wish to call - you need to use the <a href="onUpdateParams.html">onUpdateParams</a> parameter for that. See the <a href="onStart.html#notes">onStart</a> method notes for more information and examples. </p>
+  <!-- InstanceEndEditable -->
+  
+  <h4>See also</h4>
+  <!-- InstanceBeginEditable name="DetailsSeeAlso" -->
+  <p><a href="onStart.html">onStart</a>, <a href="onUpdateParams.html">onUpdateParams</a>, <a href="onUpdateScope.html">onUpdateScope</a>, <a href="onComplete.html">onComplete</a>, <a href="onOverwrite.html">onOverwrite</a></p>
+  <!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

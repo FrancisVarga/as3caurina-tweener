@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/method.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --><!-- InstanceParam name="OptionalSeeAlso" type="boolean" value="true" --><!-- InstanceParam name="OptionalNotes" type="boolean" value="false" -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Method summary <!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody">
+  <h1><!-- InstanceBeginEditable name="MethodName" -->addTween()<!-- InstanceEndEditable --></h1>
+  <h4>Availability</h4>
+  <!-- InstanceBeginEditable name="DetailAvailability" -->
+  <p>AS2 and AS3.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Usage</h4>
+  <pre><!-- InstanceBeginEditable name="DetailUsage" -->Tweener.addTween(target:Object, tweeningParameters:Object):Void<!-- InstanceEndEditable --></pre>
+  <h4>Parameters</h4>
+  <!-- InstanceBeginEditable name="DetailParameters" -->
+  <p><code>target</code>:Object &mdash; Any object that will suffer a tweening. These objects are  usually <code>MovieClip</code>, <code>TextField</code>, or <code>Sound</code> instances, or any other custom  object with a numeric property that needs to be tweened.</p>
+  <p><span class="bodyText"><code>tweeningParameters</code></span>:Object &mdash; An object containing various properties of the original object that you want to tween on the original objects, with their final values assigned (some <a href="../properties/index.html">special properties</a> are also allowed), as well as some built-in Tweener properties used when defining <a href="../parameters/index.html">tweening parameters</a>. This is like the recipe for the tweening, declaring both what will be tweened, and how.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Description</h4>
+  <!-- InstanceBeginEditable name="DetailDescription" -->
+  <p>The core of Tweener, it&rsquo;s used when creating new  tweenings. It instructs certain properties of an object to do a  transition to a certain value, taking a certain time. For example, you  could instruct the <code>_x</code> of <code>myMC</code> to reach value 100 in 2 seconds, using a linear transition equation, for a simple <code>MovieClip</code> sliding animation. </p>
+  <p>This  method has a pretty loose syntax, with a few hard-coded parameters,  allowing for a plethora of different transition options to be declared.</p>
+  <p>There are many different options available, so check the documentation for each different feature on the <a href="../parameters/index.html">tweening parameters</a> page, and see other uncommon properties you can use on the <a href="../properties/index.html">special properties</a> page.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Returns</h4>
+  <!-- InstanceBeginEditable name="DetailReturns" -->
+  <p>Nothing.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Examples</h4>
+  <!-- InstanceBeginEditable name="DetailExamples" -->
+  <pre>// Slide a movieclip to a new position in 0.5 seconds (AS2)
+Tweener.addTween(myMovieClip, {_x:10, time:0.5});</pre>
+  <pre>// Slide a movieclip to a new position in 0.5 seconds (AS3)
+Tweener.addTween(myMovieClip, {x:10, time:0.5});</pre>
+  <pre>// Fade in on a movieclip in 2 seconds (AS2)
+myMovieClip._alpha = 0;
+Tweener.addTween(myMovieClip, {_alpha:100, time:2});</pre>
+  <pre>// Fade in on a movieclip in 2 seconds (AS3)
+myMovieClip.alpha = 0;
+Tweener.addTween(myMovieClip, {alpha:1, time:2});</pre>
+  <pre>// Do a transition on both _x and on _alpha
+Tweener.addTween(myMovieClip, {_x:10, _alpha:100, time:0.5});</pre>
+  <pre>// Do a tweening using other transition type
+Tweener.addTween(myTextField, {_y:200, time:0.7, transition:"linear"});</pre>
+  <pre>// Using delays to create animation sequences
+Tweener.addTween(myMovieClip, {_x:20, time:0.5});
+Tweener.addTween(myMovieClip, {_x:0, time:0.5, delay: 0.5});</pre>
+  <pre>// Using tweener 'templates'
+var fadeIn:Object = {_alpha:100, time:1};
+Tweener.addTween(myMovieClip, fadeIn);</pre>
+  <pre>// Using events to fade out then disappear (normal function)
+disappear = function() {
+	this._visible = false;
+};
+Tweener.addTween(myMovieClip, {_alpha:0, time:1, onComplete:disappear});</pre>
+  <pre>// Using events to fade out then disappear (anonymous in-line function)
+Tweener.addTween(myMovieClip, {_alpha:0, time:1, onComplete:function() { this._visible = false; }});</pre>
+  <pre>// Using events to fade out then disappear (using the _autoAlpha special property)
+Tweener.addTween(myMovieClip, {_autoAlpha:0, time:1});</pre>
+  <pre>// More complex events
+fGo = function() { trace ("I'll go!"); };
+fGoing = function() { trace ("I'm going!"); };
+fGone = function() { trace ("I'm gone!"); };
+Tweener.addTween(myMovieClip, {_alpha:0, time:1, onStart:fGo, onUpdate:fGoing, onComplete:fGone});</pre>
+  <pre>// Assigning a value immediately (with no time or delay)
+Tweener.addTween(myMovieClip, {_alpha:100});</pre>
+  <pre>// Using other special properties (that are not related to a variable/property)
+Tweener.addTween(mySoundObject, {_sound_volume:100, time:1});
+Tweener.addTween(myMovieClip, {_frame:10, time:2.5});</pre>
+  <!-- InstanceEndEditable -->
+  
+  
+  <h4>See also</h4>
+  <!-- InstanceBeginEditable name="DetailsSeeAlso" -->
+  <p><a href="Tweener_pauseTweens.html">pauseTweens</a>, <a href="Tweener_resumeTweens.html">resumeTweens</a>, <a href="Tweener_removeTweens.html">removeTweens</a>, <a href="Tweener_removeAllTweens.html">removeAllTweens</a>, <a href="Tweener_addCaller.html">addCaller</a>, <a href="../parameters/index.html">Tweening parameters</a>, <a href="../properties/index.html">Special properties</a></p>
+  <!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

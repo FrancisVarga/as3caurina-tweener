@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/method.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --><!-- InstanceParam name="OptionalSeeAlso" type="boolean" value="false" --><!-- InstanceParam name="OptionalNotes" type="boolean" value="false" -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Method summary <!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody">
+  <h1><!-- InstanceBeginEditable name="MethodName" -->updateTime()<!-- InstanceEndEditable --></h1>
+  <h4>Availability</h4>
+  <!-- InstanceBeginEditable name="DetailAvailability" -->
+  <p>AS2 and AS3.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Usage</h4>
+  <pre><!-- InstanceBeginEditable name="DetailUsage" -->Tweener.updateTime();<!-- InstanceEndEditable --></pre>
+  <h4>Parameters</h4>
+  <!-- InstanceBeginEditable name="DetailParameters" -->
+  <p>None.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Description</h4>
+  <!-- InstanceBeginEditable name="DetailDescription" -->
+  <p>This is a special-purpose method that updates the engine's internal clock, and avoid breaking animation due to external code that freezes the player for a certain time (for example, more than 50 miliseconds). So if you want to start new animations immediately after some very complex code is executed, you should call this method first.</p>
+  <p>The way Tweener works is that, instead of reading the current time (via the <code>getTimer()</code> function) every time a new <em>animation</em> starts or is updated, it reads the time every time a new <em>frame</em> starts. This way, tweenings started or updated at different times (but on the same frame code) can be kept synchronized and provide a smoother playback (for example, when executing a series of tweenings on different objects on a loop, all of the objects will move at the same time, instead of being slightly separated in time). This feature works as a time grid of sorts, where the time used by Tweener snaps to the time the frame actually started, providing a more accurate frame drawn even if a less accurate time read. </p>
+  <p>However, if you happen to have some very complex code being executed  somewhere - say, sorting through a long list of datasets, parsing a long XML, or manipulating a big bitmap - it means that once Tweener code is executed, the time it'll be using as a basis will be too far behind the current time. If you are starting animations with <a href="Tweener_addTween.html">addTween</a> right after your complex code has been executed, it will give you the impression that the animation actually snapped forward to a certain position before continuing smoothly - sometimes even reaching their final values without executing, depending on how much time was lost to the complex code that froze the player before. </p>
+  <p>What this method do, then, is simply force an update on the engine timer, making it read the current time again, as if starting a new frame, and thus making the animation play smoothly, ignoring the frames lost due to code execution. </p>
+  <p>Don't be fooled, however; this is a last-resort solution to an external problem, and one that should be used <em>very</em> rarely. Instead, your best choice is usually to fix the complex code itself, as it can risk more of the framerate and overall user experience than simply causing snaps on Tweener animation.</p>
+  <p>Only use this method when you're not able to fix the external code that is freezing the Flash player.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Returns</h4>
+  <!-- InstanceBeginEditable name="DetailReturns" -->
+  <p>Nothing.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Examples</h4>
+  <!-- InstanceBeginEditable name="DetailExamples" -->
+  <pre>// Updates the timer before a new Tweening to make sure it starts smoothly
+for (var i:Number = 0; i &lt; 31337; i++) {
+	// do some very complex code that freezes the player for a while
+	...
+}
+Tweener.updateTime();
+Tweener.addTween(myMC, {_x:100, time:1, transition:&quot;easeoutquad&quot;});
+Tweener.addTween(myOtherMC, {_y:100, time:2, transition:&quot;easeoutquad&quot;});</pre>
+  <!-- InstanceEndEditable -->
+  
+  </div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

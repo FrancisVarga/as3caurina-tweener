@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/tweeningparameter.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --><!-- InstanceParam name="OptionalSeeAlso" type="boolean" value="true" --><!-- InstanceParam name="OptionalNotes" type="boolean" value="true" -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Reference &raquo; Tweening Parameters<!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody">
+  <h1><!-- InstanceBeginEditable name="ParameterName" -->onOverwrite<!-- InstanceEndEditable --></h1>
+  <h4>Availability</h4>
+  <!-- InstanceBeginEditable name="DetailAvailability" -->
+  <p>AS2 and AS3.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Usage</h4>
+  <pre><!-- InstanceBeginEditable name="DetailUsage" -->... onOverwrite:value<!-- InstanceEndEditable -->, ...</pre>
+  <h4>Parameters</h4>
+  <!-- InstanceBeginEditable name="DetailParameters" -->
+  <p><code>value</code>:Function &mdash; A function that is called when tweening is overwritten. It is called once regardless of the number of properties involved on the tweening. The function scope is the target object itself.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Examples</h4>
+  <!-- InstanceBeginEditable name="DetailExamples" -->
+  <pre>// Applies two tweenings on a movieclip, warning when the first is overwritten (AS2)
+onOvr = function() {
+	trace (&quot;A tweening has been overwritten at &quot; + this);
+};
+Tweener.addTween(myMovieClip, {_x:100, time:1, onOverwrite:onOvr});
+Tweener.addTween(myMovieClip, {_x:50, time:1});
+</pre>
+  <!-- InstanceEndEditable -->
+  
+  <h4><a name="notes">Notes</a></h4>
+  <!-- InstanceBeginEditable name="DetailsNotes" -->
+  <p>The reference passed to this property is a reference to the function <strong>only</strong>. This roughly means you do <strong>not</strong> use any kind of parenthesis or parameters when passing the function you wish to call - you need to use the <a href="onOverwriteParams.html">onOverwriteParams</a> parameter for that. See the <a href="onStart.html#notes">onStart</a> method notes for more information and examples. </p>
+  <!-- InstanceEndEditable -->
+  
+  <h4>See also</h4>
+  <!-- InstanceBeginEditable name="DetailsSeeAlso" -->
+  <p><a href="onStart.html">onStart</a>, <a href="onUpdate.html">onUpdate</a>, <a href="onComplete.html">onComplete</a>, <a href="onOverwriteParams.html">onOverwriteParams</a></p>
+  <!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

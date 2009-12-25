@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- *************************************************************************************
+		Tweener SWC Buildfile v0.9.0.1
+		
+		Oct 4, 2008 - jason m horwitz | SEKATI, LLC | sekati.com
+		
+		Released under the MIT License: http://www.opensource.org/licenses/mit-license.php
+		
+		@see	http://sekati.googlecode.com/		
+		@see	http://sasapi.googlecode.com/
+		@see	http://fdtkit.googlecode.com/
+		@see	http://inde.googlecode.com/
+		
+		@note	This buildfile can be used in any standard Eclipse environment with FlexSDK.
+		
+		@info	You *must* run this Buildfile in the same JRE as the workspace. To configure
+		        this: Run -> External Tools -> JRE -> Run in the same JRE as the workspace
+		        
+		@usage	1. Copy build/ contents to your project root directory (trunk).
+				2. Edit build/build.properties meta attribute to your likings (please leave credits in place).
+				3. Edit build/build.properties to point to your FLEX_HOME.
+				4. create a lib/ directory for SWC output. 
+				5. Add the build file to eclipse via the Ant panel view.
+				6. Run the "build" task to create a generate a SWC library in /lib
+				7. Run the tests provided in the tests/ dir in both mxmlc and Flash10 tests.
+		        
+     ************************************************************************************* -->
+
+<project name="Tweener AS3 SWC Buildfile" default="build" basedir="../">
+
+
+	<!-- DEFINITIONS -->
+	<property file="${basedir}/build/build.properties" />
+
+
+	<!-- RESOURCE -->
+	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
+
+
+	<!-- **************************************************************** 
+		 CUSTOMIZE BEGINS 
+		 **************************************************************** -->
+
+
+	<target name="build" description="Default Project Build" depends="verify-properties">
+		<echo>@@@ Tweener Buildfile | jason m horwitz | sekati.com @@@</echo>
+		<antcall target="compile-swc" />
+	</target>
+
+
+	<!-- **************************************************************** 
+		 CUSTOMIZE ENDS
+		 **************************************************************** -->
+
+
+
+	<!-- *************************************************************************************
+		 							INTERNAL TARGETS BELOW			        
+	     ************************************************************************************* -->
+
+
+	<!-- BUILD AUTOMATION -->
+
+	
+	<target name="compile-swc" description="Compile project.swc.source in to an SWC library file">
+		<echo>SWC Compiler -> ${project.swc.source}: ${project.swc}</echo>
+		<compc output="${project.swc}">
+			<source-path path-element="${src.dir}" />
+			<include-sources dir="${project.swc.source}">
+				<include name="*" />
+				<exclude name="**/.svn" />
+			</include-sources>
+			<metadata title="${project.meta.title}" description="${project.meta.description}" date="${project.meta.date}">
+				<contributor name="${project.meta.contributor}" />
+				<creator name="${project.meta.creator}" />
+				<publisher name="${project.meta.publisher}" />
+			</metadata>
+		</compc>
+	</target>
+
+
+	<!-- SANITY CHECK -->
+
+
+	<target name="verify-properties">
+		<fail unless="FLEX_HOME">The "FLEX_HOME" property must be set in build/build.properties.</fail>
+	</target>
+
+
+</project>

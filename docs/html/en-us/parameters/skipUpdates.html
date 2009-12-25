@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/tweeningparameter.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --><!-- InstanceParam name="OptionalSeeAlso" type="boolean" value="false" --><!-- InstanceParam name="OptionalNotes" type="boolean" value="false" -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Reference &raquo; Tweening Parameters<!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody">
+  <h1><!-- InstanceBeginEditable name="ParameterName" -->skipUpdates<!-- InstanceEndEditable --></h1>
+  <h4>Availability</h4>
+  <!-- InstanceBeginEditable name="DetailAvailability" -->
+  <p>AS2 and AS3.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Usage</h4>
+  <pre><!-- InstanceBeginEditable name="DetailUsage" -->... skipUpdates:value<!-- InstanceEndEditable -->, ...</pre>
+  <h4>Parameters</h4>
+  <!-- InstanceBeginEditable name="DetailParameters" -->
+  <p><code>value</code>:Number &mdash; How many updates must be skipped before an actual update is made. This  is a powerful property that allows the developer to enforce a  different update rate for a given tweening, as if simulating a lower  frame rate. This is useful on transitions that demand a share of the  CPU that's higher than average on each new update, such as filter  tweenings. A value of 1, for example, means that the tweening engine  will do half of the updates on this transition, since it will update  then skip one update; a value of 2 means it will do one third of the  normal updates, since it will update, then skip two updates. The default value for this parameter (when omitted) is 0, meaning no update is skipped at all, and the active  tweenings are updated on every frame render.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Examples</h4>
+  <!-- InstanceBeginEditable name="DetailExamples" -->
+  <pre>// Slides a MovieClip to _x = 200 normally (AS2)
+Tweener.addTween(myMovieClip, {_x:200, time:1});</pre>
+  <pre>// Slides a MovieClip to _x = 200 using half of the current frame rate by skipping one update at a time (AS2)
+Tweener.addTween(myMovieClip, {_x:200, time:1, skipUpdates:1});</pre>
+  <pre>// Slides a MovieClip to _x = 200 using one quarter of the current frame rate by skipping three updates at a time (AS2)
+Tweener.addTween(myMovieClip, {_x:200, time:1, skipUpdates:3});</pre>
+  <!-- InstanceEndEditable -->
+  
+  </div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

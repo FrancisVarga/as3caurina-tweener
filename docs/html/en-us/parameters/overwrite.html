@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/tweeningparameter.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --><!-- InstanceParam name="OptionalSeeAlso" type="boolean" value="true" --><!-- InstanceParam name="OptionalNotes" type="boolean" value="false" -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Reference &raquo; Tweening Parameters<!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody">
+  <h1><!-- InstanceBeginEditable name="ParameterName" -->overwrite<!-- InstanceEndEditable --></h1>
+  <h4>Availability</h4>
+  <!-- InstanceBeginEditable name="DetailAvailability" -->
+  <p>AS2 and AS3.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Usage</h4>
+  <pre><!-- InstanceBeginEditable name="DetailUsage" -->... overwrite:value<!-- InstanceEndEditable -->, ...</pre>
+  <h4>Parameters</h4>
+  <!-- InstanceBeginEditable name="DetailParameters" -->
+  <p><code>value</code>:Boolean &mdash; Whether or not the new tween will overwrite other activate tweens that are applied to the same object, on the same property, and which overlap the time the new tween will take. Enabling this simply removes the existing tweens. Disabling this may work, but the two existing tweens will run in parallel - the newest tween taking priority in setting the final property values - and may lead to undesirable results. The default value for this parameter (when omitted) is defined by the static property <a href="../sproperties/Tweener_autoOverwrite.html">autoOverwrite</a>.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Examples</h4>
+  <!-- InstanceBeginEditable name="DetailExamples" -->
+  <pre>// Default behavior: a tween is overwritten
+Tweener.addTween(myBox, {x:400, time:4, transition:&quot;linear&quot;});<br>Tweener.addTween(myBox, {x:100, time:2, transition:&quot;linear&quot;});</pre>
+  <pre>// Tween is not overwritten anymore<br>Tweener.addTween(myBox, {x:400, time:4, transition:&quot;linear&quot;});<br>Tweener.addTween(myBox, {x:100, time:2, transition:&quot;linear&quot;, overwrite:false});</pre>
+  <!-- InstanceEndEditable -->
+  
+  
+  <h4>See also</h4>
+  <!-- InstanceBeginEditable name="DetailsSeeAlso" -->
+  <p><a href="Tweener_addTween.html">addTween</a>, <a href="../sproperties/Tweener_autoOverwrite.html">autoOverwrite</a></p>
+  <!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

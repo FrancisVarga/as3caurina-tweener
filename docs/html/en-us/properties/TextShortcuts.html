@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/default.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Special property class <!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody"><!-- InstanceBeginEditable name="Body" -->
+  <h1>TextShortcuts</h1>
+  <p>This class creates special properties used when controlling textfields.</p>
+  <h2>Usage</h2>
+  <p>First, import then initialize the class. </p>
+  <pre>import caurina.transitions.properties.TextShortcuts;
+TextShortcuts.init();
+</pre>
+  <p>Then, you can use any of the special properties listed below on a normal tweening. See the <a href="index.html">introduction to special properties</a> for more information.</p>
+  <table class="summaryTable" cellpadding="3" cellspacing="0">
+    <tr>
+      <th>Property name (AS2/AS3)</th>
+      <th>Description</th>
+      <th>Target type</th>
+      <th>Type</th>
+      <th>Usual values</th>
+      <th>Related reference</th>
+    </tr>
+    <tr class="row0">
+      <td>_text</td>
+      <td>The text used inside a text field. Tweener changes one text to the other by removing the previous text, then replacing it with the new one, letter by letter.</td>
+      <td><code>TextField</code></td>
+      <td>String</td>
+      <td>Any text string.</td>
+      <td><a href="http://livedocs.adobe.com/flex/2/langref/flash/text/TextField.html#text" target="_blank">TextField.text</a></td>
+    </tr>
+    <tr class="row1">
+      <td>_text_color</td>
+      <td>The color of the text inside a textfield. This is applied to the textfield's <code>TextFormat</code> object.</td>
+      <td><code>TextField</code></td>
+      <td>Number</td>
+      <td>Any color formatted as a number (for example, 0xffgg33).</td>
+      <td><a href="http://livedocs.adobe.com/flex/2/langref/flash/text/TextFormat.html#color" target="_blank">TextFormat.color</a></td>
+    </tr>
+    <tr class="row0">
+      <td>_text_color_r</td>
+      <td>The value of the Red channel of the color of the text inside a textfield.</td>
+      <td class="row1"><code>TextField</code></td>
+      <td class="row1">Number</td>
+      <td>A number from 0 to 255.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row1">
+      <td>_text_color_g</td>
+      <td>The value of the Green channel of the color of the text inside a textfield.</td>
+      <td><code>TextField</code></td>
+      <td>Number</td>
+      <td>A number from 0 to 255.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row0">
+      <td>_text_color_b</td>
+      <td>The value of the Blue channel of the color of the text inside a textfield.</td>
+      <td class="row1"><code>TextField</code></td>
+      <td class="row1">Number</td>
+      <td>A number from 0 to 255.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row1">
+      <td>_text_indent</td>
+      <td>The additional margin added to the first line of paragraphs of text inside a textfield. This number is rounded by the <code>TextFormat</code> class.</td>
+      <td><code>TextField</code></td>
+      <td>Number</td>
+      <td>Any value in pixels.</td>
+      <td><a href="http://livedocs.adobe.com/flex/2/langref/flash/text/TextFormat.html#indent" target="_blank">TextFormat.indent</a></td>
+    </tr>
+    <tr class="row0">
+      <td>_text_leading</td>
+      <td>The additional distance between lines of text inside a textfield. This number is rounded by the <code>TextFormat</code> class.</td>
+      <td class="row1"><code>TextField</code></td>
+      <td class="row1">Number</td>
+      <td class="row1">Any value in pixels.</td>
+      <td><a href="http://livedocs.adobe.com/flex/2/langref/flash/text/TextFormat.html#leading" target="_blank">TextFormat.leading</a></td>
+    </tr>
+    <tr class="row1">
+      <td>_text_leftMargin</td>
+      <td>The left margin of a textfield. This number is rounded by the <code>TextFormat</code> class.</td>
+      <td><code>TextField</code></td>
+      <td>Number</td>
+      <td>Any value in pixels.</td>
+      <td><a href="http://livedocs.adobe.com/flex/2/langref/flash/text/TextFormat.html#leftMargin" target="_blank">TextFormat.leftMargin</a></td>
+    </tr>
+    <tr class="row0">
+      <td>_text_letterSpacing</td>
+      <td class="row1">The additional distance between individual letters in a textfield. </td>
+      <td class="row1"><code>TextField</code></td>
+      <td class="row1">Number</td>
+      <td class="row1">Any value in pixels.</td>
+      <td><a href="http://livedocs.adobe.com/flex/2/langref/flash/text/TextFormat.html#letterSpacing" target="_blank">TextFormat.letterSpacing</a></td>
+    </tr>
+    <tr class="row1">
+      <td>_text_rightMargin</td>
+      <td>The right margin of a textfield. This number is rounded by the <code>TextFormat</code> class.</td>
+      <td><code>TextField</code></td>
+      <td>Number</td>
+      <td>Any value in pixels.</td>
+      <td><a href="http://livedocs.adobe.com/flex/2/langref/flash/text/TextFormat.html#rightMargin" target="_blank">TextFormat.rightMargin</a></td>
+    </tr>
+    <tr class="row0">
+      <td>_text_size</td>
+      <td>The size of the font used in a textfield. This number is rounded by the <code>TextFormat</code> class.</td>
+      <td class="row1"><code>TextField</code></td>
+      <td class="row1">Number</td>
+      <td class="row1">Any value in points.</td>
+      <td><a href="http://livedocs.adobe.com/flex/2/langref/flash/text/TextFormat.html#size" target="_blank">TextFormat.size</a></td>
+    </tr>
+  </table>
+<!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

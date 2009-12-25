@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<macromedia-extension name="Tweener help" version="1.24.47" type="flash custom action" requires-restart="false">
+
+	<!-- Describe the author -->
+
+	<author name="Zeh Fernando" />
+
+	<!-- List the required/compatible products -->
+
+	<products>
+		<product name="Flash" version="7" primary="true" />
+	</products>
+
+	<!-- Describe the extension -->
+
+	<description>
+		<![CDATA[Installs syntax highlighting for Tweener.]]>
+	</description>
+
+	<!-- Describe where the extension shows in the UI of the product -->
+
+	<ui-access>
+		<![CDATA[Installs syntax highlighting for Tweener.]]>
+	</ui-access>
+
+	<!-- Describe the files that comprise the extension -->
+
+	<files>
+		<file name="tweener_highlight.xml" destination="$flash/ActionsPanel/CustomActions" />
+	</files>
+
+</macromedia-extension>

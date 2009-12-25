@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/method.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --><!-- InstanceParam name="OptionalSeeAlso" type="boolean" value="true" --><!-- InstanceParam name="OptionalNotes" type="boolean" value="false" -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Method summary <!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody">
+  <h1><!-- InstanceBeginEditable name="MethodName" -->resumeTweens()<!-- InstanceEndEditable --></h1>
+  <h4>Availability</h4>
+  <!-- InstanceBeginEditable name="DetailAvailability" -->
+  <p>AS2 and AS3.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Usage</h4>
+  <pre><!-- InstanceBeginEditable name="DetailUsage" -->Tweener.resumeTweens(target:Object, [, property1:String, property2:String, ...]):Boolean;<!-- InstanceEndEditable --></pre>
+  <h4>Parameters</h4>
+  <!-- InstanceBeginEditable name="DetailParameters" -->
+  <p><code>target</code>:Object &mdash;The object with tweenings that you want to resume. Usually, a <code>MovieClip</code>, <code>TextField</code>, or some instance of any other class which has numeric properties. This parameter is required.</p>
+  <p><span class="bodyText"><code>property1..propertyN</code></span>:String &mdash; The name of the property or properties that have paused tweenings that you want to resume. This is a string containing the name of the property,  and any number of strings can be specified as parameters. If no  property name is specified, all paused tweenings for this specific target target are  resumed.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Description</h4>
+  <!-- InstanceBeginEditable name="DetailDescription" -->
+  <p>Resumes specific tweenings of specific objects that have been paused with <a href="Tweener_pauseTweens.html">pauseTweens</a>. All currently existing tweenings  that match the target (or target and specified properties, if any) are resumed, including  tweenings currently delayed. Tweenings that are already playing are not affected.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Returns</h4>
+  <!-- InstanceBeginEditable name="DetailReturns" -->
+  <p>Boolean &mdash; <code>true</code> if any property tweening was successfully resumed, <code>false</code> if otherwise.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Examples</h4>
+  <!-- InstanceBeginEditable name="DetailExamples" -->
+  <pre>// Resumes all tweenings of a certain object
+Tweener.resumeTweens(myMC);</pre>
+  <pre>// Resume the _x tweening of a certain object
+Tweener.resumeTweens(myMC, &quot;_x&quot;);</pre>
+  <pre>// Resume the _x, _y and _alpha tweening of a certain object
+Tweener.resumeTweens(myMC, "_x", "_y", "_alpha");</pre>
+  <!-- InstanceEndEditable -->
+  
+  
+  <h4>See also</h4>
+  <!-- InstanceBeginEditable name="DetailsSeeAlso" -->
+  <p><a href="Tweener_addTween.html">addTween</a>, <a href="Tweener_pauseTweens.html">pauseTweens</a>, <a href="Tweener_resumeAllTweens.html">resumeAllTweens</a></p>
+  <!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

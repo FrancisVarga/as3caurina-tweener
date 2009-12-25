@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Menu</title>
+<base target="contentFrame">
+<link href="style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="print.css" type="text/css" media="print">
+<script type="text/javascript">
+// Source: http://www.dustindiaz.com/dhtml-expand-and-collapse-div-menu
+function switchMenu(obj) {
+	var el = document.getElementById(obj);
+	if (el.style.display != 'none') {
+		el.style.display = 'none';
+	} else {
+		el.style.display = '';
+	}
+}
+</script>
+<style type="text/css">
+<!--
+body {
+	padding: 12px;
+}
+h1, h2, h3, h4, h5, h6	{
+	font-family: "Trebuchet MS", "Bitstream Vera Sans", verdana, lucida, arial, helvetica, sans-serif;
+	font-weight: normal;
+	margin-top: 4px;
+	margin-bottom: 4px;
+/*	letter-spacing: 1px; */
+}
+h1 {
+	margin-top: 12px;
+	font-size: 13px;
+	margin-left: 0px;
+	font-weight: bold;
+}
+h2 {
+	font-size: 11px;
+	margin-left: 8px;
+}
+h3 {
+	font-size: 11px;
+	margin-left: 16px;
+}
+h4 {
+	font-size: 11px;
+	margin-left: 24px;
+}
+h5 {
+	font-size: 11px;
+	margin-left: 32px;
+}
+a {
+	text-decoration: none;
+}
+-->
+</style>
+</head>
+<body>
+<h1>Main topics</h1>
+<h2><a href="misc/intro.html">Introduction</a></h2>
+<h2><a href="misc/installation.html">Download and installation</a></h2>
+<h2><a href="misc/howtouseaclass.html">How to use a Class</a></h2>
+<h2><a href="misc/version.html">Which version to use?</a></h2>
+<h2><a href="misc/mctween.html">Differences between MC Tween and Tweener</a></h2>
+<h1>Class methods and functions</h1>
+<!--
+<h2>Equations</h2>
+<h3>ease</h3>
+-->
+<h2><a href="javascript:switchMenu('methods_tweener');" target="_self">Tweener &raquo;</a></h2>
+<div id="methods_tweener" style="display:none">
+  <h3><a href="methods/Tweener_addCaller.html">addCaller</a></h3>
+  <h3><a href="methods/Tweener_addTween.html">addTween</a></h3>
+  <h3><a href="sproperties/Tweener_autoOverwrite.html">autoOverwrite</a> (property)</h3>
+  <!--<h3>debug_getList</h3>-->
+  <h3><a href="methods/Tweener_getTweenCount.html">getTweenCount</a></h3>
+  <h3><a href="methods/Tweener_getTweens.html">getTweens</a></h3>
+  <h3><a href="methods/Tweener_getVersion.html">getVersion</a></h3>
+  <!--<h3>init</h3>-->
+  <h3><a href="methods/Tweener_isTweening.html">isTweening</a></h3>
+  <!--<h3>onEnterFrame</h3>-->
+  <h3><a href="methods/Tweener_pauseAllTweens.html">pauseAllTweens</a></h3>
+  <!--<h3>pauseTweenByIndex</h3>-->
+  <h3><a href="methods/Tweener_pauseTweens.html">pauseTweens</a></h3>
+  <h3><a href="methods/Tweener_registerSpecialProperty.html">registerSpecialProperty</a></h3>
+  <h3><a href="methods/Tweener_registerSpecialPropertyModifier.html">registerSpecialPropertyModifier</a></h3>
+  <h3><a href="methods/Tweener_registerSpecialPropertySplitter.html">registerSpecialPropertySplitter</a></h3>
+  <h3><a href="methods/Tweener_registerTransition.html">registerTransition</a></h3>
+  <h3><a href="methods/Tweener_removeAllTweens.html">removeAllTweens</a></h3>
+  <!--<h3>removeTweenByIndex</h3>-->
+  <h3><a href="methods/Tweener_removeTweens.html">removeTweens</a></h3>
+  <!--<h3>removeTweensByTime</h3>-->
+  <h3><a href="methods/Tweener_resumeAllTweens.html">resumeAllTweens</a></h3>
+  <!--<h3>resumeTweenByIndex</h3>-->
+  <h3><a href="methods/Tweener_resumeTweens.html">resumeTweens</a></h3>
+  <h3><a href="methods/Tweener_setTimeScale.html">setTimeScale</a></h3>
+  <!--<h3>splitTweens</h3>-->
+  <h3><a href="methods/Tweener_updateTime.html">updateTime</a></h3>
+</div>
+<h1>Reference</h1>
+<h2><a href="javascript:switchMenu('special_properties'); void(parent.contentFrame.location='properties/index.html');" target="_self">Special Properties &raquo;</a></h2>
+<div id="special_properties" style="display:none">
+  <h3><a href="properties/ColorShortcuts.html">ColorShortcuts</a></h3>
+  <h3><a href="properties/CurveModifiers.html">CurveModifiers</a></h3>
+  <h3><a href="properties/DisplayShortcuts.html">DisplayShortcuts</a></h3>
+  <h3><a href="properties/FilterShortcuts.html">FilterShortcuts</a></h3>
+  <h3><a href="properties/SoundShortcuts.html">SoundShortcuts</a></h3>
+  <h3><a href="properties/TextShortcuts.html">TextShortcuts</a></h3>
+</div>
+<h2><a href="javascript:switchMenu('tweening_parameters'); void(parent.contentFrame.location='parameters/index.html');" target="_self">Tweening Parameters &raquo;</a></h2>
+<div id="tweening_parameters" style="display:none">
+  <h3><a href="parameters/base.html">base</a></h3>
+  <h3><a href="parameters/count.html">count</a></h3>
+  <h3><a href="parameters/delay.html">delay</a></h3>
+  <h3><a href="parameters/onComplete.html">onComplete</a></h3>
+  <h3><a href="parameters/onCompleteParams.html">onCompleteParams</a></h3>
+  <h3><a href="parameters/onCompleteScope.html">onCompleteScope</a></h3>
+  <h3><a href="parameters/onError.html">onError</a></h3>
+  <h3><a href="parameters/onErrorScope.html">onErrorScope</a></h3>
+  <h3><a href="parameters/onOverwrite.html">onOverwrite</a></h3>
+  <h3><a href="parameters/onOverwriteParams.html">onOverwriteParams</a></h3>
+  <h3><a href="parameters/onOverwriteScope.html">onOverwriteScope</a></h3>
+  <h3><a href="parameters/onStart.html">onStart</a></h3>
+  <h3><a href="parameters/onStartParams.html">onStartParams</a></h3>
+  <h3><a href="parameters/onStartScope.html">onStartScope</a></h3>
+  <h3><a href="parameters/onUpdate.html">onUpdate</a></h3>
+  <h3><a href="parameters/onUpdateParams.html">onUpdateParams</a></h3>
+  <h3><a href="parameters/onUpdateScope.html">onUpdateScope</a></h3>
+  <h3><a href="parameters/overwrite.html">overwrite</a></h3>
+  <h3><a href="parameters/rounded.html">rounded</a></h3>
+  <h3><a href="parameters/skipUpdates.html">skipUpdates</a></h3>
+  <h3><a href="parameters/time.html">time</a></h3>
+  <h3><a href="parameters/transition.html">transition</a></h3>
+  <h3><a href="parameters/transitionParams.html">transitionParams</a></h3>
+  <h3><a href="parameters/useFrames.html">useFrames</a></h3>
+  <h3><a href="parameters/waitFrames.html">waitFrames</a></h3>
+</div>
+<h2><a href="misc/transitions.html">Transition Types</a></h2>
+<!--
+<h1>Helper movies </h1>
+<h2>Bezier</h2>
+<h2>Custom transitions</h2>
+-->
+</body>
+</html>
+<!-- -->

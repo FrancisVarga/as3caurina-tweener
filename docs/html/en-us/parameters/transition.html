@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/tweeningparameter.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --><!-- InstanceParam name="OptionalSeeAlso" type="boolean" value="true" --><!-- InstanceParam name="OptionalNotes" type="boolean" value="true" -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Reference &raquo; Tweening Parameters<!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody">
+  <h1><!-- InstanceBeginEditable name="ParameterName" -->transition<!-- InstanceEndEditable --></h1>
+  <h4>Availability</h4>
+  <!-- InstanceBeginEditable name="DetailAvailability" -->
+  <p>AS2 and AS3.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Usage</h4>
+  <pre><!-- InstanceBeginEditable name="DetailUsage" -->... transition:value<!-- InstanceEndEditable -->, ...</pre>
+  <h4>Parameters</h4>
+  <!-- InstanceBeginEditable name="DetailParameters" -->
+  <p><code>value</code>:String or Function &mdash; The type of transition to use. Different equations can be used, producing different tweening updates based on time spent. You can specify this parameter by their internal string names, as listed on the original <a href="../misc/transitions.html">transitions</a> list, or use any custom function to have a customized easing (see below for examples and a more in-depth description). The default transition is &quot;easeOutExpo&quot;.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Examples</h4>
+  <!-- InstanceBeginEditable name="DetailExamples" -->
+  <pre>// Slides a MovieClip to _x = 200 using a boring, linear transition (AS2)
+Tweener.addTween(myMovieClip, {_x:200, time:1, transition:&quot;linear&quot;});</pre>
+  <pre>// Slides a MovieClip to _x = 200 using a more smooth easeOutExpo transition (AS2)
+Tweener.addTween(myMovieClip, {_x:200, time:1, transition:&quot;easeOutExpo&quot;});</pre>
+  <pre>// Same as above, but using the function reference itself
+Tweener.addTween(myMovieClip, {_x:200, time:1, transition:Equations.easeOutExpo}); </pre>
+  <pre>// Same as above, but using a function reference from Flash
+Tweener.addTween(myMovieClip, {_x:200, time:1, transition:mx.transitions.easing.Strong.easeOut});</pre>
+  <pre>// Creating and using a custom function
+var myFunc:Function = function(t:Number, b:Number, c:Number, d:Number):Number {
+	var ts:Number=(t/=d)*t;
+	var tc:Number=ts*t;
+	return b+c*(-97.1975*tc*ts + 257.5975*ts*ts + -234.4*tc + 80*ts + -5*t);
+};
+Tweener.addTween(myMovieClip, {_x:200, time:1, transition:myFunc});</pre>
+  <!-- InstanceEndEditable -->
+  
+  <h4><a name="notes">Notes</a></h4>
+  <!-- InstanceBeginEditable name="DetailsNotes" -->
+  <p>If you want to use a custom function as the transition, the function must receive four parameters: current time on the transition, starting tweening value, change needed in that value, and total easing duration (plus an optional object, which will contain any parameter passed as the <a href="../parameters/transitionParams.html">transitionParams</a> property of new tweenings). During each tweening, the transition function will be continuously called, with the first parameter increasing until it reaches the total duration; it must return the new expected value.</p>
+  <p>It's important to notice that this function follows the classic easing equation format, as used on Robert Penner's <a href="http://www.robertpenner.com/easing/" target="_blank">original easing equations</a>, or Flash's own transition equations; as such,  all <a href="http://livedocs.adobe.com/flex/2/langref/mx/effects/easing/package-detail.html" target="_blank">mx.effects.easing</a> equations (for AS3) or mx.transitions (AS2) also work.</p>
+  <p>See Tweener's <code>caurina/transitions/Equations.as</code> file for some examples on how this work.</p>
+  <p>A good custom easing equation generator can be found <a href="http://timotheegroleau.com/Flash/experiments/easing_function_generator.htm" target="_blank">here</a>.</p>
+  <!-- InstanceEndEditable -->
+  
+  <h4>See also</h4>
+  <!-- InstanceBeginEditable name="DetailsSeeAlso" -->
+  <p><a href="../methods/Tweener_registerTransition.html">registerTransition</a>, <a href="transitionParams.html">transitionParams</a></p>
+  <!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

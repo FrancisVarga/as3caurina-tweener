@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/default.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Main topics<!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody"><!-- InstanceBeginEditable name="Body" -->
+  <h1>Introduction</h1>
+  <p>Tweener is a <em>class</em> for Actionscript 2 and 3, meaning it&rsquo;s a piece of code you can call and reuse on your own movies. This is just its documentation - for more information on the extension itself, please visit the <a href="http://code.google.com/p/tweener/">official website</a> at Google Code. </p>
+  <p>For a quick explanation on how to install Tweener, see <a href="installation.html">Installation</a> first.</p>
+  <p>If you are used to Actioncript 1, prototypes, or #includes, and don't know how to use a real class yet, please read the <a href="howtouseaclass.html">how to use a class</a> page for a brief introduction on the issue.</p>
+  <p>If you are used to <a href="http://hosted.zeh.com.br/mctween" rel="nofollow">MC Tween</a> and want to know the differences on the syntax between MC Tween and Tweener, also check <a href="mctween.html">Differences between MC Tween and Tweener</a>.</p>
+  <h2>Brief explanation</h2>
+  <p>Tweener  is a <em>static</em> class - that is, a class that allows you to run methods on  it, or call its properties, but that never lets you create instances  from it. This means that, with Tweener, you never create a new object -  you simply tells Tweener to do something for you.</p>
+  <p>Tweener works on the idea that, instead of setting the value of a given property of a given object directly, as in <code>myMC._x = 10</code>,  you can tell that property to create a <em>transition</em> to that value - by  doing this transition or tweening, you can control your numeric data in  a more fluid way, also by using <em>easing equations</em> in this process. Doing slides, fades, and all kinds of animation is  the result of this kind of manipulation: by making a property or  variable go to one value or the other fluidly, not immediately. Rich transitions and animations with simple code is the aim of Tweener. </p>
+  <p>With Tweener, you write your code by adding new tweenings or transitions to the movie, using the method addTween. Like this (AS2 version):</p>
+  <pre>Tweener.addTween(myMovie, {_x:10, _y:10, time:1, transition:"linear"});</pre>
+  <p>Or this (AS3 version):</p>
+  <pre>Tweener.addTween(myMovie, {x:10, y:10, time:1, transition:"linear"});</pre>
+  <p>This will move the object <code>myMovie</code> on screen, going to the position 10,10, in 1 second, using a linear animation (other <a href="transitions.html">transition types</a> are available).</p>
+  <p>The final value is an absolute value, not a relative one. This means that, if you want to, say, move <code>myMovie</code> 10 pixels to the right (instead of sliding it to column 10), you would do this (in AS2):</p>
+  <pre>Tweener.addTween(myMovie, {_x:myMovie._x+10, time:1, transition:"linear"});</pre>
+  <p>Also notice you can chain tweenings sequentially, creating complex animations, by using delays. For example, to move <code>myMovie</code> to column 10, then to column -10, you would do (in AS2):</p>
+  <pre>Tweener.addTween(myMovie, {_x:10, time:1, transition:&quot;linear&quot;});
+Tweener.addTween(myMovie, {_x:-10, time:1, delay:1, transition:&quot;linear&quot;});</pre>
+  <p>Notice the use of the delay property, that tells the animation to wait a bit (the same ammount of the previous transition) before starting. This specified delay property allows you to create complex animations that are not necessarily chained together sequentially, but start at a given time; you could create animations that act on different objects with arbritrary ammounts of time to wait for any of these transitions. </p>
+  <p>The cool thing with Tweener is that this addTween method allows you to use a plethora of different optional <a href="../parameters/index.html">tweening parameters</a>, giving you control to a lot of different transition properties.</p>
+  <p>The  important thing to notice is that Tweener isn't just a class used to  create just animations. It's, instead, a class used to create  transitions - doing tweenings <strong>on any numeric property of any object</strong> - which can be used for many purposes, including visual animation. It's  not restricted to the normal Actionscript classes like <code>MovieClip</code> or  <code>TextField</code> either; you can use it to tween properties of your own  classes and objects, like moving the <code>cameraX</code> and <code>cameraY</code> properties of your game rendering engine, the <code>currentTemperature</code> of your own <code>Thermometer</code> class object, the <code>travelPosition</code> of your train simulation movie, the <code>currentStrength</code> of each of your spectrum analyzer graph bars, and so on and so forth.</p>
+  <p>See the menu at the left for a listing of the available methods and other options. Don't forget to also check the online <a href="http://tweener.googlecode.com/svn/trunk/examples/" rel="nofollow">examples</a> for a bunch of practical uses of Tweener, including their source files.</p>
+  <!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/default.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Main topics<!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody"><!-- InstanceBeginEditable name="Body" -->
+  <h1>Which version to use?</h1>
+  <p>There are different versions of Tweener available. It's important picking the correct one before using on any given project, so here's a brief description of the different versions available:</p>
+  <ul>
+    <li><strong>Actionscript 2 - Flash 7+, Flash Lite 2+</strong>: This  can be considered the legacy version of Tweener, as it targets features  of Flash Player 7. It should be used on projects made  for Flash Player 7 or Flash Lite Player 2. While it can be used on  projects targeted at Flash Player version 8 and above, it's not  recommended to do so as this version lacks certain advanced features  available only on Flash Player 8, such as filter effects. </li>
+  </ul>
+  <ul>
+    <li><strong>Actionscript 2 - Flash 8+</strong>: The standard AS2 version. This version should be used on AS2 projects targeting Flash Player 8 and above. </li>
+  </ul>
+  <ul>
+    <li><strong>Actionscript 3 - Flash 9+</strong>:  The standard AS3 version. This version should be used on AS3 projects  targeting Flash Player 9 and above. Notice that this includes projects  created in Flex or compiled with the Flex SDK, and projects meant for Apollo.</li>
+  </ul>
+  <p>Because of all these different versions available, it's advised to have the class files setup on your individual project folder, instead of your global class folder. It's the (recommended) method explained on the <a href="howtouseaclass.html">how to use a class</a> page.</p>
+  <p>Also, in the future, depending on changes happening on the Flash Player and compiler versions, additional Tweener versions may be available.</p>
+  <h2>Usage examples</h2>
+  <p>If you're still unsure, here are some use scenarios that might fit your case.</p>
+  <p>Suppose you're writing a Flash Lite 2 application, using AS2. You're doing so on Flash 8. Well, you may be on Flash 8, but since you're targeting Flash Lite 2 with your SWF, you'll be using the AS2 F7+/FL2+ version on this project.</p>
+  <p>Or suppose you're creating a Flash movie which is meant to be played on real old players - you're targetting Flash Player 7. Again, even if you're using Flash 8, you'll be using the AS2 F7+/FL2+ version; this version doesn't have the filter imports included, so you won't see the same errors you'd normally see when trying to use the regular AS2 version.</p>
+  <p>Now, suppose you're using FlashDevelop (or a similar external editor) to create a Flash movie that is targetting Flash Player 7, all this compiled with MTASC. Again, you'd use the AS2 F7+/FL2+ version.</p>
+  <p>On the other hand, if you're on Flash 8, but specifically targetting Flash Player 8 (that is, your SWF will be version 8), then you use the standard AS2 version, the AS2 F8+ version.</p>
+  <p>But notice that if you're on Flash CS3 (Flash 9) and is creating an AS2 movie and exporting for Flash Player 8, again, you'd be using the AS2 F8+ version. Easy enough, this is because your <em>targetted</em> version is Flash 8. Sure enough, the fact that you're running Flash CS3 makes no difference.</p>
+  <p>If you're in Flash CS3 and working with AS3 (targetting Flash Player 9+), however, you'd be using the standard AS3 version, the AS3 F9+ version.</p>
+  <p>If you're creating an AS3 project inside Flex, or creating an external project with FlashDevelop (or a similar external editor), but using the free Flex SDK compiler to compile, you'd, again, be using the AS3 F9+ version.</p>
+  <p>The important thing to keep in mind is that the Tweener version you'll use will depend upon the final Flash Player version you're targeting, and the Actionscript version you're using on your project; the specific IDE version or compiling tool used do not directly influence the decision of the version to use.</p>
+<!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

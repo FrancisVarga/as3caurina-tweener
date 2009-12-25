@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/tweeningparameter.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --><!-- InstanceParam name="OptionalSeeAlso" type="boolean" value="false" --><!-- InstanceParam name="OptionalNotes" type="boolean" value="false" -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Reference &raquo; Tweening Parameters<!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody">
+  <h1><!-- InstanceBeginEditable name="ParameterName" -->base<!-- InstanceEndEditable --></h1>
+  <h4>Availability</h4>
+  <!-- InstanceBeginEditable name="DetailAvailability" -->
+  <p>AS2 and AS3.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Usage</h4>
+  <pre><!-- InstanceBeginEditable name="DetailUsage" -->... base:object<!-- InstanceEndEditable -->, ...</pre>
+  <h4>Parameters</h4>
+  <!-- InstanceBeginEditable name="DetailParameters" -->
+  <p><code>object</code>:Object OR Array &mdash; An array OR an object containing properties and parameters to declare a new tweening. This object is used as the &quot;base&quot; of the new tweening, working as a kind of tweening inheritance, allowing more control when reusing object that declare tweening properties and parameters.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Examples</h4>
+  <!-- InstanceBeginEditable name="DetailExamples" -->
+  <pre>// WITHOUT base, using a tweening object to create a fade out animation (AS2)
+var myFade:Object = {_alpha:0, time:1};
+Tweener.addTween(myMovieClip, myFade);
+
+// WITH base, but doing the same as above
+var myFade:Object = {_alpha:0, time:1};
+Tweener.addTween(myMovieClip, {base:myFade});
+
+// WITH base, using the original "base" object to create a fade out animation with a different time
+var myFade:Object = {_alpha:0, time:1};
+Tweener.addTween(myMovieClip, {base:myFade, time:2});</pre>
+  <pre>// You can chain several different objects together
+var myFade:Object = {_alpha:0, time:1};
+var myFadeLong:Object = {base:myFade, time:10};
+var myFadeShort:Object = {base:myFade, time:0.2};
+Tweener.addTween(myMovieClip1, myFadeLong);
+Tweener.addTween(myMovieClip2, myFadeShort);</pre>
+  <pre>// The "base" values are read when executing the addTween() method,
+// so you can change values on the original base object AFTER assigning them as a base
+// On the example below, _alpha goes to 50 in 10 seconds
+var myFade:Object = {_alpha:0, time:1};
+var myFadeLong:Object = {base:myFade, time:10};
+myFade._alpha = 50;
+Tweener.addTween(myMovieClip, myFadeLong);</pre>
+  <pre>// To ignore properties from the base object and set them to their default values, just set them to null
+var myDelayedFade:Object = {_alpha:0, time:1, delay:1};
+var myFade:Object = {base:myDelayedFade, delay:null};
+Tweener.addTween(myMovieClip, myFade);</pre>
+
+<pre>
+// WITH base, using an array of base objects:
+var myFade:Object = {_alpha:0, time:1};
+var myFadeLong:Object = {time:10};
+Tweener.addTween(myMovieClip1, {base:[myFade, myFadeLong]});
+// This is the equivalent of a nested base, such as:
+var myFade:Object = {_alpha:0, time:1};
+var myFadeLong:Object = {base:myFade, time:10};
+Tweener.addTween(myMovieClip1, myFadeLong);
+
+</pre>
+	
+  <!-- InstanceEndEditable -->
+  
+  </div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

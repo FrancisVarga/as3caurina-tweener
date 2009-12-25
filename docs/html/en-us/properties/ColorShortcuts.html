@@ -1,0 +1,301 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/default.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" -->
+<style type="text/css">
+<!--
+.style1 {color: #FF0000}
+-->
+</style>
+<!-- InstanceEndEditable -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Special property class <!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody"><!-- InstanceBeginEditable name="Body" -->
+  <h1>ColorShortcuts</h1>
+  <p>This class creates special properties used when controlling the color of certain display classes, such as <code>MovieClip</code> or <code>DisplayObject</code>. They provide an easier way to apply certain color transformations that require more complex math and are not directly acessible.</p>
+  <h2>Usage</h2>
+  <p>First, import then initialize the class.</p>
+  <pre>import caurina.transitions.properties.ColorShortcuts;
+ColorShortcuts.init();
+</pre>
+  <p>Then, you can use any of the special properties listed below on a normal tweening. See the <a href="index.html">introduction to special properties</a> for more information.</p>
+  <table class="summaryTable" cellpadding="3" cellspacing="0">
+    <tr>
+      <th>Property name (AS2/AS3)</th>
+      <th>Description</th>
+      <th>Target type</th>
+      <th>Type</th>
+      <th>Compatibility Notes </th>
+      <th>Usual values</th>
+      <th>Related reference</th>
+    </tr>
+    <tr class="header">
+      <td colspan="7">Channel color transformation properties<br>
+        <span class="subheader">Please notice: these properties are available when using the legacy AS2 (Flash 7, FlashLite 2, and FlashLite 3) version of Tweener, and work in the same way. However, they use the old color transformation object to achieve the desired results.</span></td>
+    </tr>
+    <tr class="row0">
+      <td>_color_redMultiplier</td>
+      <td> A decimal value that is multiplied with the red channel value. The original value for display objects is 1.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>Emulated in Flash 7/FL2/FL3</td>
+      <td>A number from 0 to 1.</td>
+      <td><a href="http://livedocs.adobe.com/flex/2/langref/flash/geom/ColorTransform.html#redMultiplier" target="_blank">ColorTransform.redMultiplier</a></td>
+    </tr>
+    <tr class="row1">
+      <td>_color_redOffset</td>
+      <td> A number from -255 to 255 that is added to the red channel value after it has been     multiplied by the <code>redMultiplier</code> value. The original value for display objects is 0.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>Emulated in Flash 7/FL2/FL3</td>
+      <td>A number from -255 to 255.</td>
+      <td><a href="http://livedocs.adobe.com/flex/2/langref/flash/geom/ColorTransform.html#redOffset" target="_blank">ColorTransform.redOffset</a></td>
+    </tr>
+    <tr class="row0">
+      <td>_color_greenMultiplier</td>
+      <td> A decimal value that is multiplied with the green channel value. The original value for display objects is 1.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>Emulated in Flash 7/FL2/FL3</td>
+      <td>A number from 0 to 1.</td>
+      <td><a href="http://livedocs.adobe.com/flex/2/langref/flash/geom/ColorTransform.html#greenMultiplier" target="_blank">ColorTransform.greenMultiplier</a></td>
+    </tr>
+    <tr class="row1">
+      <td>_color_greenOffset</td>
+      <td> A number from -255 to 255 that is added to the green channel value after it has been     multiplied by the <code>redMultiplier</code> value. The original value for display objects is 0.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>Emulated in Flash 7/FL2/FL3</td>
+      <td>A number from -255 to 255.</td>
+      <td><a href="http://livedocs.adobe.com/flex/2/langref/flash/geom/ColorTransform.html#greenOffset" target="_blank">ColorTransform.greenOffset</a></td>
+    </tr>
+    <tr class="row0">
+      <td>_color_blueMultiplier</td>
+      <td> A decimal value that is multiplied with the blue channel value. The original value for display objects is 1.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>Emulated in Flash 7/FL2/FL3</td>
+      <td>A number from 0 to 1.</td>
+      <td><a href="http://livedocs.adobe.com/flex/2/langref/flash/geom/ColorTransform.html#blueMultiplier" target="_blank">ColorTransform.blueMultiplier</a></td>
+    </tr>
+    <tr class="row1">
+      <td>_color_blueOffset</td>
+      <td> A number from -255 to 255 that is added to the blue channel value after it has been     multiplied by the <code>redMultiplier</code> value. The original value for display objects is 0.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>Emulated in Flash 7/FL2/FL3</td>
+      <td>A number from -255 to 255.</td>
+      <td><a href="http://livedocs.adobe.com/flex/2/langref/flash/geom/ColorTransform.html#blueOffset" target="_blank">ColorTransform.blueOffset</a></td>
+    </tr>
+    <tr class="row0">
+      <td>_color_alphaMultiplier</td>
+      <td> A decimal value that is multiplied with the alpha channel value. The original value for display objects is 1.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>Emulated in Flash 7/FL2/FL3</td>
+      <td>A number from 0 to 1.</td>
+      <td><a href="http://livedocs.adobe.com/flex/2/langref/flash/geom/ColorTransform.html#alphaMultiplier" target="_blank">ColorTransform.alphaMultiplier</a></td>
+    </tr>
+    <tr class="row1">
+      <td>_color_alphaOffset</td>
+      <td> A number from -255 to 255 that is added to the alpha channel value after it has been     multiplied by the <code>redMultiplier</code> value. The original value for display objects is 0.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>Emulated in Flash 7/FL2/FL3</td>
+      <td>A number from -255 to 255.</td>
+      <td><a href="http://livedocs.adobe.com/flex/2/langref/flash/geom/ColorTransform.html#alphaOffset" target="_blank">ColorTransform.alphaOffset</a></td>
+    </tr>
+    <tr class="header">
+      <td colspan="7">Complete color transformation properties</td>
+    </tr>
+    <tr class="row0">
+      <td>_color</td>
+      <td>A color that you want to set the object to. This tints the object to this new color, maintaining nothing of the original object's content colors.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>&nbsp;</td>
+      <td>Any color formatted as a number (for example, 0xffdd33).</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row1">
+      <td>_colorTransform</td>
+      <td>A color transformation object declaring how each specific color channel should be changed. Tweener will create a new tweening for each property found on the supplied object. This is a powerful way to change the color of objects, but it can't do channel mixing; using the ColorMatrixFilter or the related special properties for that.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>ColorTransform</td>
+      <td>&nbsp;</td>
+      <td>Any  <code>ColorTransform</code> object that specifies a complex color transformation. </td>
+      <td><a href="http://livedocs.adobe.com/flex/2/langref/flash/geom/ColorTransform.html" target="_blank">ColorTransform</a></td>
+    </tr>
+    <tr class="header">
+      <td colspan="7">Color adjustment properties </td>
+    </tr>
+    <tr class="row0">
+      <td>_brightness</td>
+      <td>The brightness of an object. This value is analogous to the brightness value used in Photoshop, or Flash's new &quot;Adjust color&quot; filter, but using a range of -1 to 1 instead of -100 to 100. The standard value for display objects is 0.</td>
+      <td>AS2: <code>MovieClip</code><br>
+        AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>&nbsp;</td>
+      <td>A number from -1 (dark) to 0 (normal) to 1 (bright). A value of 2.55 specifies total exposure, and is complete white.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row1">
+      <td>_tintBrightness</td>
+      <td>The brightness of an object, as set by tinting it with a percentage of black or while. This is analogous to Flash's old &quot;Brightness&quot; color option on the object property panel, but using a range of 0 to 1 instead of 0 to 100. The standard value for display objects is 0.</td>
+      <td>AS2: <code>MovieClip</code><br>
+        AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>&nbsp;</td>
+      <td>A number from -1 (black) to 0 (normal) to 1 (white).</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row0">
+      <td>_contrast</td>
+      <td>The contrast of a display object. This property aims to provide a more linear progression and as such is not analogous either to Photoshop's or Flash's own contrast settings; use higher values to get stronger results. The standard value for display objects is 0.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>&nbsp;</td>
+      <td>A number from -1 (grey) to 0 (normal) to 1 (high contrast).</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row1">
+      <td>_hue</td>
+      <td>The hue offset of a display object, in degrees. This is used to cycle through different color tones. This value is analogous to the hue value used in Photoshop, or Flash's new &quot;Adjust color&quot; filter. The standard value for display objects is 0.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td><span class="row0">Not available in Flash 7/FL2/FL3</span></td>
+      <td>A number from -180 to 0 (normal) to 180. </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row0">
+      <td>_saturation</td>
+      <td>The absolute saturation of a display object, as a multiplier.  This saturation property takes luminosity into account for an stardard RGB screen, so it doesn't simply mix the RGB channels. It also aims to provide a more linear progression and as such is not analogous either to Photoshop's or Flash's own saturation settings; use higher values to get stronger results.  The standard value for display objects is 1.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>Not available in Flash 7/FL2/FL3</td>
+      <td>A number from 0 (complete grayscale) to 1 (normal color) to 2 (highly saturated).</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row1">
+      <td class="row0">_dumbSaturation</td>
+      <td class="row0">The absolute saturation of a display object, as a multiplier.  This saturation property simply even outs the values of the RGB channels and as such produces a grayscale image that has  luminosity values different from the original colored version; using the <code>_saturation</code> property instead is recommended. The standard value for display objects is 1.</td>
+      <td class="row0">AS2: <code>MovieClip</code><br>
+        AS3: <code>DisplayObject</code></td>
+      <td class="row0">Number</td>
+      <td class="row0">Not available in Flash 7/FL2/FL3</td>
+      <td class="row0">A number from 0 (complete grayscale) to 1 (normal color) to 2 (highly saturated).</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr class="header">
+      <td colspan="7">Old channel color transformation properties<br>
+        <span class="style1">Warning: these special properties have been deprecated. They still work, but using them should be avoided.</span></td>
+    </tr>
+    <tr class="row0">
+      <td>_color_ra</td>
+      <td> Percent of the original red channel that should be used. The original value for display objects is 100.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>&nbsp;</td>
+      <td>A number from 0 to 100.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row1">
+      <td>_color_rb</td>
+      <td> A number from -255 to 255 that is added to the red channel value after it has been     multiplied by the <code>redMultiplier</code> value. The original value for display objects is 0.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>&nbsp;</td>
+      <td>A number from -255 to 255.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row0">
+      <td>_color_ga</td>
+      <td>Percent of the original green channel that should be used. The original value for display objects is 100.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>&nbsp;</td>
+      <td>A number from 0 to 100.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row1">
+      <td>_color_gb</td>
+      <td> A number from -255 to 255 that is added to the green channel value after it has been     multiplied by the <code>redMultiplier</code> value. The original value for display objects is 0.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>&nbsp;</td>
+      <td>A number from -255 to 255.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row0">
+      <td>_color_ba</td>
+      <td>Percent of the original blue channel that should be used. The original value for display objects is 100.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>&nbsp;</td>
+      <td>A number from 0 to 100.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row1">
+      <td>_color_bb</td>
+      <td> A number from -255 to 255 that is added to the blue channel value after it has been     multiplied by the <code>redMultiplier</code> value. The original value for display objects is 0.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>&nbsp;</td>
+      <td>A number from -255 to 255.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row0">
+      <td>_color_aa</td>
+      <td>Percent of the original alpha channel that should be used. The original value for display objects is 100.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>&nbsp;</td>
+      <td>A number from 0 to 100.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row1">
+      <td>_color_ab</td>
+      <td> A number from -255 to 255 that is added to the alpha channel value after it has been     multiplied by the <code>redMultiplier</code> value. The original value for display objects is 0.</td>
+      <td>AS2: <code>MovieClip</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>&nbsp;</td>
+      <td>A number from -255 to 255.</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+<!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

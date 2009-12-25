@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/default.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Special property class <!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody"><!-- InstanceBeginEditable name="Body" -->
+  <h1>SoundShortcuts</h1>
+  <p>This class creates special properties used when controlling sound.</p>
+  <h2>Usage</h2>
+  <p>First, import then initialize the class. </p>
+  <pre>import caurina.transitions.properties.SoundShortcuts;
+SoundShortcuts.init();
+</pre>
+  <p>Then, you can use any of the special properties listed below on a normal tweening. See the <a href="index.html">introduction to special properties</a> for more information.</p>
+  <table class="summaryTable" cellpadding="3" cellspacing="0">
+    <tr>
+      <th>Property name (AS2/AS3)</th>
+      <th>Description</th>
+      <th>Target type</th>
+      <th>Type</th>
+      <th>Usual values</th>
+      <th>Related reference</th>
+    </tr>
+    <tr class="row0">
+      <td>_sound_volume</td>
+      <td>The volume of a given sound reference.</td>
+      <td>AS2: <code>Sound</code><br>
+        AS3: <code>SoundChannel</code></td>
+      <td>Number</td>
+      <td>AS2: 0 (mute) to 100 (full volume)<br>
+        AS3: 0 (mute) to 1 (full volume)</td>
+      <td>AS2: <a href="http://livedocs.adobe.com/flash/9.0/main/00005437.html" target="_blank">Sound.setVolume</a>, <a href="http://livedocs.adobe.com/flash/9.0/main/00002133.html" target="_blank">Sound.getVolume</a><br>
+        AS3: <a href="http://livedocs.adobe.com/flex/2/langref/flash/media/SoundTransform.html#volume" target="_blank">SoundTransform.volume</a></td>
+    </tr>
+    <tr class="row1">
+      <td>_sound_pan</td>
+      <td>The sound panning (the balance of sound volume between the left and right speaker) of a given sound reference.</td>
+      <td>AS2: <code>Sound</code><br>
+AS3: <code>SoundChannel</code></td>
+      <td>Number</td>
+      <td>AS2: -100 (left speaker only) to 0 (both speakers) to 100 (right speaker only)<br>
+AS3: -1 (left speaker only) to 0 (both speakers) to 1 (right speaker only)</td>
+      <td>AS2: <a href="http://livedocs.adobe.com/flash/9.0/main/00005435.html" target="_blank">Sound.setPan</a>, <a href="http://livedocs.adobe.com/flash/9.0/main/00005426.html" target="_blank">sound.getPan</a><br>
+      AS3: <a href="http://livedocs.adobe.com/flex/2/langref/flash/media/SoundTransform.html#pan" target="_blank">SoundTransform.pan</a></td>
+    </tr>
+  </table>
+<!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

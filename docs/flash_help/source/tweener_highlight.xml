@@ -1,0 +1,57 @@
+<customactions>
+
+  <colorsyntax>
+
+	<!-- generic words -->
+
+    <identifier text="Tweener"/>
+
+	<!-- public methods -->
+
+    <identifier text=".addCaller"/>
+    <identifier text=".addTween"/>
+    <identifier text=".bebug_getList"/>
+    <identifier text=".getTweenCount"/>
+    <identifier text=".getTweens"/>
+    <identifier text=".getVersion"/>
+    <identifier text=".isTweening"/>
+    <identifier text=".pauseAllTweens"/>
+    <identifier text=".pauseTweens"/>
+    <identifier text=".registerSpecialProperty"/>
+    <identifier text=".registerSpecialPropertySplitter"/>
+    <identifier text=".registerTransition"/>
+    <identifier text=".removeAllTweens"/>
+    <identifier text=".removeTweens"/>
+    <identifier text=".resumeAllTweens"/>
+    <identifier text=".resumeTweens"/>
+    <identifier text=".setTimeScale"/>
+    <identifier text=".updateTime"/>
+
+	<!-- public methods, but for internal use -->
+
+    <identifier text=".pauseTweenByIndex"/>
+    <identifier text=".removeTweenByIndex"/>
+    <identifier text=".removeTweensByTime"/>
+    <identifier text=".resumeTweensByindex"/>
+    <identifier text=".splitTweens"/>
+
+	<!-- addTween tweening parameters -->
+
+    <keyword text="time"/>
+    <keyword text="delay"/>
+    <keyword text="useFrames"/>
+    <keyword text="transition"/>
+    <keyword text="rounded"/>
+    <keyword text="skipUpdates"/>
+    <keyword text="onStart"/>
+    <keyword text="onStartParams"/>
+    <keyword text="onUpdate"/>
+    <keyword text="onUpdateParams"/>
+    <keyword text="onComplete"/>
+    <keyword text="onCompleteParams"/>
+    <keyword text="onOverwrite"/>
+    <keyword text="onOverwriteParams"/>
+
+  </colorsyntax>
+
+</customactions>

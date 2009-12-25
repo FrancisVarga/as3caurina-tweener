@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/default.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Special Properties<!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody"><!-- InstanceBeginEditable name="Body" -->
+  <h1>Introduction</h1>
+  <p><em>Special properties</em> are specialized pieces of code, made to help Tweener deal with aspects of ActionScript objects that are not normally acessible directly - by a normal property - or that can't simply be tweened. They act like code proxies, executing specific code blocks based on a metaphorical tweening value. For example, one can't change the current frame of a <code>MovieClip</code> object, so it's not a <em>tweenable</em> property; however, since Tweener has a special property called <code>_frame</code>, you can tween the current frame with code like this (on all ActionScript versions):</p>
+  <pre>// Fast-forward a movieclip to frame 20, slowing down on the end
+myMovieClip.gotoAndStop(1);
+Tweener.addTween(myMovieClip, {_frame:20, time:1, transition:&quot;easeOutExpo&quot;});</pre>
+  <p>Special properties work in a modular way. They're not available by default, so they have to be <em>registered</em> first before they can be used, by using the <code><a href="../methods/Tweener_registerSpecialProperty.html">registerSpecialProperty</a></code>, <code><a href="../methods/Tweener_registerSpecialPropertySplitter.html">registerSpecialPropertySplitter</a></code>, and <code><a href="../methods/Tweener_registerSpecialPropertyModifier.html">registerSpecialPropertyModifier</a></code> methods.</p>
+  <p>Anyone can create new special properties by using these methods. However, Tweener comes with a collection of different special property classes, meant to do the most common tasks.</p>
+  <p>Keep in mind that, since they rely on specific methods of implementation, these classes and special properties are optional; it's perfectly possible to create tweenings of every aspect of an ActionScript object without these special properties - such as with getter/setter methods on a custom class, or successive calls to update functions. However, as a quick solution, special properties play an important role.</p>
+  <p>As the special property classes available on Tweener are separated, they aren't initialized by default, so their special properties aren't <em>registered</em> to the engine just by using Tweener. To properly use the special properties available on these classes, you have to first initialize them, like such: </p>
+  <pre>// Import Tweener
+import caurina.transitions.Tweener;
+
+// Import the list of special properties we want: FilterShortcuts
+import caurina.transitions.properties.FilterShortcuts;
+// Initialize the FilterShortcuts class
+FilterShortcuts.init();</pre>
+  <p>Or you can initialize the class directly, without importing, since you only have to refer to it once.</p>
+  <pre>// Import Tweener
+import caurina.transitions.Tweener;
+// Initialize the list of special properties we want: FilterShortcuts
+caurina.transitions.properties.FilterShortcuts.init();</pre>
+  <p>After that is done, all special properties made available by the <code>FilterShortcuts</code> class will be available for Tweener (regardless of where the reference is made; the registration is global). Due to this, you only have to register (or initialize) the class once.</p>
+  <p>See the list below for a description of the collection of special properties already included in the Tweener files by default, and see the individual page of each class for a list of the special properties available inside it. </p>
+  <table class="summaryTable" cellpadding="3" cellspacing="0">
+    <tr>
+      <th>Class path and name</th>
+      <th>Description</th>
+      <th>Approximate addition to SWF size</th>
+    </tr>
+    <tr class="row0">
+      <td>caurina.transitions.properties.<a href="ColorShortcuts.html">ColorShortcuts</a></td>
+      <td>Includes properties for manipulating the color of display objects, such as individual channel multiplier and offsets, and special coloring such as hue, saturation, brightness and contrast.</td>
+      <td>2.2 kb</td>
+    </tr>
+    <tr class="row1">
+      <td>caurina.transitions.properties.<a href="CurveModifiers.html">CurveModifiers</a></td>
+      <td>Modifiers that provide some kind of change for normal tweenings; right now, the bezier curve only.</td>
+      <td>0.4 kb</td>
+    </tr>
+    <tr class="row0">
+      <td>caurina.transitions.properties.<a href="DisplayShortcuts.html">DisplayShortcuts</a></td>
+      <td>Special properties for display objects such as <code>Sprites</code>, <code>MovieClips</code>, and <code>TextField</code> instances, include modifiers for visibility, frame position, and <code>scrollRect</code> size.</td>
+      <td>0.8 kb</td>
+    </tr>
+    <tr class="row1">
+      <td>caurina.transitions.properties.<a href="FilterShortcuts.html">FilterShortcuts</a></td>
+      <td>A list of special properties that simplify the tweening of the built-in bitmap filters such as Blur, Glow, and many others.</td>
+      <td>3.5 kb</td>
+    </tr>
+    <tr class="row0">
+      <td>caurina.transitions.properties.<a href="SoundShortcuts.html">SoundShortcuts</a></td>
+      <td>Special properties used when controlling sound.</td>
+      <td>0.2 kb</td>
+    </tr>
+    <tr class="row1">
+      <td>caurina.transitions.properties.<a href="TextShortcuts.html">TextShortcuts</a></td>
+      <td>Additional special properties used to change some specific <code>TextField</code> properties, such as <code>TextFormat</code> properties, and the text content itself.</td>
+      <td>0.9 kb</td>
+    </tr>
+  </table>
+<!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

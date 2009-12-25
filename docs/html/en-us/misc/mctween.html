@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/default.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Main topics<!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody"><!-- InstanceBeginEditable name="Body" -->
+  <h1>Differences between MC Tween and Tweener </h1>
+  <p><a href="http://hosted.zeh.com.br/mctween/" rel="nofollow">MC Tween</a> is an extension for Actionscript 1 and 2, and the spiritual predecessor to Tweener. Created in 2003, it relies on  prototypes to extend the functionality of some built-in Actionscript  classes: the <code>MovieClip</code>, <code>TextField</code> and <code>Sound</code> classes. Basically, it allows a developer to create new tweenings easily, with a single, straightforward line of code.
+  <p>Tweener  is a static Class and, as such, it has many syntactical differences to  MC Tween. However, the concept of simplicity - one command only to  create a tween - is shared between both these libraries, and of course,  both are used for the same intent: creating transitions that usually  translate to visual animation.
+  <p>What follows is a comparison of how both of these libraries work, and how knowledge from MC Tween can be translated to Tweener.</p>
+  <h2>Syntax differences</h2>
+  <p>In MC Tween, the first thing you need to do is <code>#include</code>  the extension file, and that file redefines the classes. You do this  with this command, which is added only once to a Flash movie:</p>
+  <pre>#include "mc_tween2.as"</pre>
+  <p>After that is done, you can use a bunch of commands to create new tweenings. For example:</p>
+  <pre>myMC.alphaTo (100, 1, "linear");
+myMC.slideTo (10, 10, 1, "linear");
+mySound.volumeTo(0, 1);
+textField.tween("_x", 10, 1, "easeoutelastic");</pre>
+  <p>Now, Tweener is a class and it works by, first, importing the class file so  it can be properly used. This command is always added somewhere, before  calling the class:</p>
+  <pre>import caurina.transitions.Tweener;</pre>
+  <p>After  that is done, Tweener methods can be called. Now, here's where the main  difference lies. First, since Tweener is not based on prototypes, which  extend the original classes, you don't call methods from the objects  themselves, as in:
+  <pre>myMC.tween(...);</pre>
+  <p>Instead, you call Tweener itself, and the object is just the first parameter:
+  <pre>Tweener.addTween(myMC, ...);</pre>
+  <p>Also, notice that there are no shortcut methods. With MC Tween, you had methods such as <code>alphaTo()</code>, <code>slideTo()</code>, <code>alphaTo()</code>, <code>rotateTo()</code>, <code>roundedBezierSlideTo()</code>, and many others; they were all just shortcuts to tween(), meant to make the code easier to understand when reading, and slightly simpler when writing.
+  <p>In Tweener, however, only addTween()  is used to create new tweenings. This is meant to make coding less  redundant - because of the way the rest of the line is written, it's  easy to read and understand what's being tweened, and to which value -  and simpler to write and read. One can also tween some additional <a href="../properties/index.html">special properties</a>, so this replaces the shortcut-based tweenings that couldn't be directly translated into property tweenings, such as <code>volumeTo()</code> or <code>colorTo()</code>.
+  <p>Second,  the parameters themselves don't follow a specific order, as they would  on MC Tween. In MC Tween, you had something like:</p>
+  <pre>myMC.tween("_x", 100, 2, "linear", 1);
+myMC.xSlideTo(100, 2, "linear", 1);</pre>
+  <p>Both of the lines above would slide myMC to the column 100, in 2 seconds, with a "linear" transition, and with 1 second delay.</p>
+  <p>Developers  had to remember the order they had to write the parameters, and if they  wanted to skip any of them, they had to use a value of <code>undefined</code>. Knowing the order beforehand was easy because code hinting was provided, and thus shown immediately after writing the <code>.tween(</code> part, but still not very readable.
+  <p>Tweener, on the other hand, use a tweening "object" for the tweening data. This object holds all <a href="../parameters/index.html">tweening parameters</a>, in any order, and properties can be omitted where desired. For example, the above line would be written with Tweener as such:
+  <pre>Tweener.addTween(myMC, {_x:100, time:2, transition:"linear", delay:1});</pre>
+  <p>But the order doesn't matter:
+  <pre>Tweener.addTween(myMC, {_x:100, time:2, delay:1, transition:"linear"});</pre>
+  <p>And you can omit some parameters if you want them to have their default values:</p>
+  <pre>Tweener.addTween(myMC, {_x:100, time:2});</pre>
+  <p>And the same syntax can be applied when tweening several different properties. For example:
+  <pre>Tweener.addTween(myMC, {_x:100, _y:10, _alpha:100, time:2, delay:1, transition:"linear"});</pre>
+  <p>This  is no magical solution, as remembering the parameters can also be hard,  specially for unexperienced developers. In the long run, however, this  provides an extremely readable code, even for users not acquainted with  Tweener - just skimming the line itself is enough to understand what it  does, and how.
+  <p>In conclusion, this in MC Tween:
+  <pre>// Only once on your entire movie
+#include "mc_tween2.as"
+
+// Tween _x of mymc
+mymc.tween("_x", 10, 1, "linear", 4, myCallback);</pre>
+  <p>Would be like this in Tweener (AS2):
+  <pre>// Only once on each frame or class
+import caurina.transitions.Tweener;
+
+// Tween _x of mymc
+Tweener.addTween(mymc, {_x:10, time:1, delay:4, transition:"linear", onComplete:myCallback});</pre>
+  <p>Or in Tweener (AS3):
+  <pre>// Only once on each frame or class
+import caurina.transitions.Tweener;
+
+// Tween x of mymc
+Tweener.addTween(mymc, {x:10, time:1, delay:4, transition:"linear", onComplete:myCallback});</pre>
+  <h2>Events</h2>
+  <p>Other major point of difference between MC Tween and Tweener is how events are handled. With MC Tween, you had one single callback function, that was called right after the tweening was finished. For code that would fade a MovieClip then hide it completely, it worked as such:
+  <pre>this.hideMe = function() {
+	this._visible = false;
+};
+myMC.tween("_alpha", 0, 1, "linear", 0, this.hideMe);</pre>
+  <p>While  this works, one of the main issues when using MC Tween in the long run  was the lack of a better event management, like being able to execute  code on every update or immediately before the tween started. You could  add event blocks to objects themselves - they would be fired when any  tween update took place on it - but it was a pretty clumsy method.
+  <p>Tweener, on the other hand, works by declaring the events together with tweening properties, as such:
+  <pre>this.hideMe = function() {
+	this._visible = false;
+};
+Tweener.addTween(myMC, {_alpha:0, time:1, transition:"linear", onComplete:this.hideMe});</pre>
+  <p>The key point, here, is that you're not only limited to the onComplete event, which mimics the way the callback parameter worked on MC Tween. You also have other events such as onStart and onUpdate, for example:
+  <pre>this.starting = function() {
+	trace ("tweening is starting.");
+};
+this.updating = function() {
+	trace ("tweening has updated.");
+};
+this.completing = function() {
+	trace ("tweening has finished.");
+};
+Tweener.addTween(myMC, {_x:10, time:1, onStart:this.starting, onUpdate:this.updating, onComplete:this.completing});</pre>
+  <p>They also allow parameters to be passed to each event function. Again, see the <a href="../parameters/index.html">tweening parameters</a> page for the complete list.
+  <p>This  might seem overkill at first, but it is one of the most positive  changes from MC Tween to Tweener. Having the ability to set events on  tweenings give you the power to call specific functions every time a  tweening is updated - important if you're changing the value of a  property that need to be reapplied, like the <code>redraw()</code>  function of a Class - or when you need to delay some changes to the  object and you want to sync them with the start or end of your  tweening. This is what gives developers the ability to do very complex  tweenings, without the need to wrap it with a lot of code.
+  <h2>Transitions</h2>
+  <p>MC  Tween allowed the developer to use a number of different tweening  equations, or transitions, to customize the way an animation played.  The developer informed MC Tween which transition to use on each new  tween by way of a String parameter. Tweener is the same, and it  supports all the transitions MC Tween supported (see the <a href="transitions.html">transition list</a>). For example:
+  <pre>myMC.alphaTo(0, 1, &quot;linear&quot;);
+myMC.slideTo(10, 20, 1, &quot;easeinoutexpo&quot;);</pre>
+  <p>Using Tweener, whis would be written like so:
+  <pre>Tweener.addTween(myMC, {_alpha:100, time:1, transition:&quot;linear&quot;});
+Tweener.addTween(myMC, {_x:10, _y:20, time:1, transition:&quot;easeinoutexpo&quot;});</pre>
+  <p>On Tweener, however, there's a very special difference: the transition  property can also be a function. This means that new functions can be  created to perform all kinds of different transitions. See the  documentation for the <a href="../methods/Tweener_registerTransition.html">registerSpecialTransition</a> method for more information.
+  <h2>Special properties</h2>
+  <p>Albeit  it was a bit hidden since it based itself more on 'shortcuts', one  could use several different 'special tweenings' on MC Tween to tween  properties that weren't readily available. For example, take the volume  of a Sound object: it's impossible to tween it directly, since there's no property that refers to it - instead, the method setVolume() is used to set the volume, and the function getVolume()  is used to read it. MC Tween provided a few hardcoded properties to  allow them to act as a property tweening. As such, on MC Tween, one  could do this, via a shortcut:
+  <pre>mySound.volumeTo(10, 1, "linear");</pre>
+  <p>This  would do a volume tweening to 10% in 1 second. However, internally,  that simply translated to a special property tweening, like so:
+  <pre>mySound.tween("__special_sound_volume__", 10, 1, "linear");</pre>
+  <p>With Tweener, since there are no shortcut methods, a number of <a href="../properties/index.html">special properties</a> have been provided to facilitate tweening more complex aspects of  certain objects. As an example, on the sound volume case, this would be  _sound_volume, and be written like this:
+  <pre>Tweener.addTween(mySound, {_sound_volume:10, time:1, transition:"linear"});</pre>
+  <p>The  important thing is that these special properties are also customizable,  so anyone can build a number of special properties if needed, and  attach them to Tweener so they're readily recognizable. See the  documentation for the <a href="../methods/Tweener_registerSpecialProperty.html">registerSpecialProperty</a> method for more information.
+  <h2>Current features</h2>
+  <p>Finally,  MC Tween is pretty diferent from Tweener. Each has a number of positive  and negative points, and each promote a slightly different coding  style. With Tweener, the biggest negative point is that it still lacks  some features that have been featured in MC Tween for some time, as  it's not yet 100% done. What I attempt to list below is the biggest  pros and cons of Tweener when compared to MC Tween, so it's easier for  a MC Tween user to decide whether or not it's worth trying Tweener.
+  <ul>
+    <li>Tweener - cons</li>
+    <ul>
+      <li>Has no Flash IDE code completion or code hinting available</li>
+      <li>The developer must remember the name of the tweening properties available, or have them at hand</li>
+    </ul>
+  </ul>
+  <ul>
+    <li>Tweener - pros</li>
+    <ul>
+      <li>Forgets about MovieClips and TextFields and simply allow any instance of any class to be tweened seamlessly</li>
+      <li>Much more extensible when it comes to using custom transitions</li>
+      <li>Much  more extensible when it comes to using custom special properties,  allowing 'extensions' to be built and added to Tweener when needed</li>
+      <li>Much easier to create complex tweenings due to additional, more powerful events</li>
+      <li>Much easier to "wrap around" methods and functions which Tweener doesn't natively support</li>
+      <li>New features like <code>setTimeScale()</code>, <code>skipUpdates</code>, and <code>addCaller()</code>, which are very specific to certain situations but can really help</li>
+      <li>Promotes reusing and standardization by allowing tweening 'templates' to be built and reused</li>
+      <li>Uses the same syntax between the AS2 and AS3 versions, but maintaining the standards of each version for values or property names</li>
+      <li>Produces code that's much easier to read and understand, even for developers that never used the class before </li>
+    </ul>
+  </ul>
+  <p>And, quite frankly, it still saves the world... but now, it does so <em>with a fancy dance</em>.<!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

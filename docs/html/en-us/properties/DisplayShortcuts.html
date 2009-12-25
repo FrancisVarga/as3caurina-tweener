@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/default.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Special property class <!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody"><!-- InstanceBeginEditable name="Body" -->
+  <h1>DisplayShortcuts</h1>
+  <p>This class creates special properties used when controlling certain display classes, such as <code>MovieClip</code>. </p>
+  <h2>Usage</h2>
+  <p>First, import then initialize the class. </p>
+  <pre>import caurina.transitions.properties.DisplayShortcuts;
+DisplayShortcuts.init();
+</pre>
+  <p>Then, you can use any of the special properties listed below on a normal tweening. See the <a href="index.html">introduction to special properties</a> for more information.</p>
+  <table class="summaryTable" cellpadding="3" cellspacing="0">
+    <tr>
+      <th>Property name (AS2/AS3)</th>
+      <th>Description</th>
+      <th>Target type</th>
+      <th>Type</th>
+      <th>Compatibility Notes</th>
+      <th>Usual values</th>
+      <th>Related reference</th>
+    </tr>
+    <tr class="row0">
+      <td>_frame</td>
+      <td>The current frame of a MovieClip.</td>
+      <td><code>MovieClip</code></td>
+      <td>Number</td>
+      <td>&nbsp;</td>
+      <td>From 1 to the object's total frame count</td>
+      <td>AS2: <a href="http://livedocs.adobe.com/flash/9.0/main/00001903.html" target="_blank">MovieClip._currentframe</a>, <a href="http://livedocs.adobe.com/flash/9.0/main/00001926.html" target="_blank">MovieClip.gotoAndStop</a><br>
+      AS3: <a href="http://livedocs.adobe.com/flex/2/langref/flash/display/MovieClip.html#currentFrame" target="_blank">MovieClip.currentFrame</a>, <a href="http://livedocs.adobe.com/flex/2/langref/flash/display/MovieClip.html#gotoAndStop()" target="_blank">MovieClip.gotoAndStop</a></td>
+    </tr>
+    <tr class="row1">
+      <td>_autoAlpha</td>
+      <td>Opacity of an object. The same as <code>_alpha</code> (AS2) or <code>alpha</code> (AS3), but it automatically hides the object when the value reaches 0, setting its <code>_visible</code> (AS2) or <code>visible</code> (AS3) property to <code>false</code>, or show it when the value is above 0, setting it to <code>true</code>.</td>
+      <td>AS2: <code>MovieClip, TextField</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>&nbsp;</td>
+      <td>AS2: 0 to 100<br>
+AS3: 0 to 1</td>
+      <td>AS2:  <a href="http://livedocs.adobe.com/flash/9.0/main/00001891.html" target="_blank">MovieClip._alpha</a><br>
+      AS3: <a href="http://livedocs.adobe.com/flex/2/langref/flash/display/DisplayObject.html#alpha" target="_blank">DisplayObject.alpha</a> </td>
+    </tr>
+    <tr class="row0">
+      <td>_scale</td>
+      <td>Scale of an object. This is a shortcut that refers to both the horizontal and vertical scales of an object.</td>
+      <td>AS2: <code>MovieClip, TextField</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>&nbsp;</td>
+      <td>AS2: 0 to 100<br>
+AS3: 0 to 1</td>
+      <td>AS2: <a href="http://livedocs.adobe.com/flash/9.0/main/00001989.html" target="_blank">MovieClip._xscale</a><br>
+        AS3: <a href="http://livedocs.adobe.com/flex/2/langref/flash/display/DisplayObject.html#scaleX" target="_blank">DisplayObject.scaleX</a></td>
+    </tr>
+    <tr class="row1">
+      <td>_scrollRect</td>
+      <td>Scrolling rectangle for the masking of an object, that is applied to the object as its <code>scrollRect</code> property.  Any <code>scrollRect</code> property tweening will use rounded numbers only, as this property doesn't allow floating point dimensions. If the object already has a <code>scrollRect</code> defined, the values of the existing <code>scrollRect</code> are tweened to match the new rectangle. If the object doesn't have a <code>scrollRect</code> defined, a rectangle of values (0, 0, 100, 100) is applied prior to tweening.</td>
+      <td>AS2: <code>MovieClip, TextField</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Rectangle</td>
+      <td>Not available in Flash 7/FL2/FL3</td>
+      <td>A rectangle with any given pixel dimensions.</td>
+      <td>AS2: <a href="http://livedocs.adobe.com/flash/9.0/main/00001968.html" target="_blank">MovieClip.scrollRect</a><br>
+      AS3: <a href="http://livedocs.adobe.com/flex/2/langref/flash/display/DisplayObject.html#scrollRect" target="_blank">DisplayObject.scrollRect</a></td>
+    </tr>
+    <tr class="row0">
+      <td>_scrollRect_x</td>
+      <td>The <code>x</code> property of an object's <code>scrollRect</code>. The rules from the _scrollRect special property (as mentioned above) apply.</td>
+      <td>AS2: <code>MovieClip, TextField</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>Not available in Flash 7/FL2/FL3</td>
+      <td>Any dimension or position in pixels.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row1">
+      <td>_scrollRect_y</td>
+      <td>The <code>y</code> property of an object's <code>scrollRect</code>. The rules from the _scrollRect special property (as mentioned above) apply.</td>
+      <td>AS2: <code>MovieClip, TextField</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>Not available in Flash 7/FL2/FL3</td>
+      <td>Any dimension or position in pixels.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row0">
+      <td>_scrollRect_left</td>
+      <td>The <code>left</code> property of an object's <code>scrollRect</code>. The rules from the _scrollRect special property (as mentioned above) apply.</td>
+      <td>AS2: <code>MovieClip, TextField</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>Not available in Flash 7/FL2/FL3</td>
+      <td>Any dimension or position in pixels.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row1">
+      <td>_scrollRect_right</td>
+      <td>The <code>right</code> property of an object's <code>scrollRect</code>. The rules from the _scrollRect special property (as mentioned above) apply.</td>
+      <td>AS2: <code>MovieClip, TextField</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>Not available in Flash 7/FL2/FL3</td>
+      <td>Any dimension or position in pixels.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row0">
+      <td>_scrollRect_top</td>
+      <td>The <code>top</code> property of an object's <code>scrollRect</code>. The rules from the _scrollRect special property (as mentioned above) apply.</td>
+      <td>AS2: <code>MovieClip, TextField</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>Not available in Flash 7/FL2/FL3</td>
+      <td>Any dimension or position in pixels.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row1">
+      <td>_scrollRect_bottom</td>
+      <td>The <code>bottom</code> property of an object's <code>scrollRect</code>. The rules from the _scrollRect special property (as mentioned above) apply.</td>
+      <td>AS2: <code>MovieClip, TextField</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>Not available in Flash 7/FL2/FL3</td>
+      <td>Any dimension or position in pixels.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row0">
+      <td>_scrollRect_width</td>
+      <td>The <code>width</code> property of an object's <code>scrollRect</code>. The rules from the _scrollRect special property (as mentioned above) apply.</td>
+      <td>AS2: <code>MovieClip, TextField</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>Not available in Flash 7/FL2/FL3</td>
+      <td>Any dimension or position in pixels.</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr class="row1">
+      <td>_scrollRect_height</td>
+      <td>The <code>height</code> property of an object's <code>scrollRect</code>. The rules from the _scrollRect special property (as mentioned above) apply.</td>
+      <td>AS2: <code>MovieClip, TextField</code><br>
+AS3: <code>DisplayObject</code></td>
+      <td>Number</td>
+      <td>Not available in Flash 7/FL2/FL3</td>
+      <td>Any dimension or position in pixels.</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+<!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

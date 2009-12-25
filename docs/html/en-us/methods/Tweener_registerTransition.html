@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/method.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --><!-- InstanceParam name="OptionalSeeAlso" type="boolean" value="true" --><!-- InstanceParam name="OptionalNotes" type="boolean" value="false" -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Method summary <!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody">
+  <h1><!-- InstanceBeginEditable name="MethodName" -->registerTransition()<!-- InstanceEndEditable --></h1>
+  <h4>Availability</h4>
+  <!-- InstanceBeginEditable name="DetailAvailability" -->
+  <p>AS2 and AS3.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Usage</h4>
+  <pre><!-- InstanceBeginEditable name="DetailUsage" -->Tweener.registerTransition(name:String, transitionFunction:Function);<!-- InstanceEndEditable --></pre>
+  <h4>Parameters</h4>
+  <!-- InstanceBeginEditable name="DetailParameters" -->
+  <p><code>name</code>:Number &mdash; The name of the new transition you want to create. It's recommended that you do not use the name of any of the existing <a href="../misc/transitions.html">transitions</a> as this would overwrite them.</p>
+  <p><code>transitionFunction</code>:Function &mdash; The transition function employed. The same rules applied to functions passed as a <a href="../parameters/transition.html">transition</a> parameter apply. </p>
+  <!-- InstanceEndEditable -->
+  <h4>Description</h4>
+  <!-- InstanceBeginEditable name="DetailDescription" -->
+  <p>Creates and registers a new transition equation. This is useful if you want a quick way to reuse functions on new tweenings when using the <a href="../parameters/transition.html">transition</a> parameter. Notice that you do <strong>not</strong> need to register any function you want to use: the <code>transition</code> parameter also accepts functions directly. The registration is meant just </p>
+  <p>Some <a href="../properties/index.html">special properties</a> used on Tweener are created and registered with this method; check the <code>SpecialPropertiesDefault.as</code> file to check what they do.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Returns</h4>
+  <!-- InstanceBeginEditable name="DetailReturns" -->
+  <p>Nothing.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Examples</h4>
+  <!-- InstanceBeginEditable name="DetailExamples" -->
+  <p>Suppose you want to create a new special property, called <code>_scale</code>, that immediately sets the <code>_xscale</code> and <code>_yscale</code> of a <code>MovieClip</code> in one go. This is not needed since such a special property already exists by default, but it's used on this example.</p>
+  <p>In this case, one could register this new <code>_scale</code> property this way (AS2): </p>
+  <pre>_scale_splitter = function(p_value:Number, p_parameters:Array):Array {
+	var nArray:Array = new Array();
+	nArray.push({name:"_xscale", value: p_value});
+	nArray.push({name:"_yscale", value: p_value});
+	return nArray;
+}
+Tweener.registerSpecialPropertySplitter("_scale", _scale_splitter);</pre>
+  <p>That is, you tell the splitter function the value you want the split properties to have, and the function returns a list of the corresponding property values, and their target values. After that is done, you can use this new special property natively, as in:</p>
+  <pre>Tweener.addTween(myMC, {_scale:200, time:1});</pre>
+  <p>This will automatically scale <code>myMC</code> to 200% of scale, regardless of its individual horizontal and vertical scales.</p>
+  <p>Special property splitters can also return the name of special properties   themselves as part of the list of properties to be tweened. For example, this is part of the special property that adds the <code>_color</code> special property to Tweener, as defined by <code>SpecialPropertiesDefault.as</code>:</p>
+  <pre>public static function _color_splitter (p_value):Array {
+	var nArray:Array = new Array();
+	if (p_value == null) {
+		// No parameter passed, so just resets the color
+		nArray.push({name:"_color_ra", value:100});
+		nArray.push({name:"_color_rb", value:0});
+		nArray.push({name:"_color_ga", value:100});
+		nArray.push({name:"_color_gb", value:0});
+		nArray.push({name:"_color_ba", value:100});
+		nArray.push({name:"_color_bb", value:0});
+	} else {
+		// A color tinting is passed, so converts it to the object values
+		nArray.push({name:"_color_ra", value:0});
+		nArray.push({name:"_color_rb", value:AuxFunctions.numberToR(p_value)});
+		nArray.push({name:"_color_ga", value:0});
+		nArray.push({name:"_color_gb", value:AuxFunctions.numberToG(p_value)});
+		nArray.push({name:"_color_ba", value:0});
+		nArray.push({name:"_color_bb", value:AuxFunctions.numberToB(p_value)});
+	}
+	return nArray;
+}</pre>
+  <p>This special property receives a numeric color value (such as <code>0xff56a1</code>) and converts it into specific color channel twewnings, to tint a <code>MovieClip</code> by way of a tweening. Notice that <code>_color_ra</code> (and others) are also special properties themselves.</p>
+  <!-- InstanceEndEditable -->
+  
+  
+  <h4>See also</h4>
+  <!-- InstanceBeginEditable name="DetailsSeeAlso" -->
+  <p><a href="../misc/transitions.html">Transitions</a></p>
+  <!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

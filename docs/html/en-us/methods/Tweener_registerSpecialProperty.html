@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/method.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --><!-- InstanceParam name="OptionalSeeAlso" type="boolean" value="true" --><!-- InstanceParam name="OptionalNotes" type="boolean" value="false" -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Method summary <!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody">
+  <h1><!-- InstanceBeginEditable name="MethodName" -->registerSpecialProperty()<!-- InstanceEndEditable --></h1>
+  <h4>Availability</h4>
+  <!-- InstanceBeginEditable name="DetailAvailability" -->
+  <p>AS2 and AS3.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Usage</h4>
+  <pre><!-- InstanceBeginEditable name="DetailUsage" -->Tweener.registerSpecialProperty(name:String, getFunction:Function, setFunction:Function [, parameters:Array]);<!-- InstanceEndEditable --></pre>
+  <h4>Parameters</h4>
+  <!-- InstanceBeginEditable name="DetailParameters" -->
+  <p><code>name</code>:Number &mdash; The name of the new special property you want to create. This name cannot conflict with the name of any existing <a href="../parameters/index.html">tweening parameter</a>, and it's recommended that you do not use the name of any <a href="../properties/index.html">special property</a> already existing as this would overwrite them.</p>
+  <p><code>getFunction</code>:Function &mdash; The function used to read the property or value corresponding to this special property. Must receive a parameter, which is the target object that must be read.</p>
+  <p><code>setFunction</code>:Function &mdash; The function used to set the value of the property corresponding to this special property. Must receive two parameters: the target object, which is the object that will be changed, and the desired value, which is a Number.</p>
+  <p><code>parameters</code>:Array &mdash; An optional parameter containing an array of properties of any kind. This parameter is passed to the <code>getFunction</code> and <code>setFunction</code> functions when updating the values of special properties; that way, you can have the same function work for a number of different special properties, but doing different things to them based on the parameters received.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Description</h4>
+  <!-- InstanceBeginEditable name="DetailDescription" -->
+  <p>Creates and registers a new special property, which is like a normal property, but with additional functionality. From an Object Oriented Programming point of view, this is like a getter/setter - meaning you create a function that reads a property of an object, and another function that sets the value of this same property, then tie them both to a special name.</p>
+  <p>A feature like this shouldn't be needed most of the times, as changing the value of a given property is all that's needed to create a transition of some kind. Some objects or classes don't have exposted properties, or some properties might need additional code for a propert tweening, and that's where the need for special properties arise.</p>
+  <p>Almost all <a href="../properties/index.html">special properties</a> used on Tweener are created and registered with this method; check the <code>SpecialPropertiesDefault.as</code> file to check what they do. Some special properties, however, are grouping of other properties. This is the case of <code>_color</code> and <code>_colorTransform</code>, for example, which are related to a number of different properties, and as such don't really fit into the whole getter/setter architecture. Cases like these are created with the <a href="Tweener_registerSpecialPropertySplitter.html">registerSpecialPropertySplitter</a> method instead.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Returns</h4>
+  <!-- InstanceBeginEditable name="DetailReturns" -->
+  <p>Nothing.</p>
+  <!-- InstanceEndEditable -->
+  <h4>Examples</h4>
+  <!-- InstanceBeginEditable name="DetailExamples" -->
+  <p>Suppose you want to create a new special property, called <code>_autoAlpha</code>, that immediately sets the <code>_alpha</code> of a <code>MovieClip</code> and, in case it is 0, also makes the object invisible by setting its <code>_visible</code> property to <code>false</code> so it can really be hidden from mouse events. This is not needed since such a special property already exists by default, but it's used on this example.</p>
+  <p>In this case, one could register this new <code>_autoAlpha</code> property this way:</p>
+  <pre>_autoAlpha_get = function(p_obj:Object):Number {
+    return p_obj._alpha;
+};
+_autoAlpha_set = function(p_obj:Object, p_value:Number):Void {
+    p_obj._alpha = p_value;
+    p_obj._visible = (p_value != 0);
+};
+Tweener.registerSpecialProperty("_autoAlpha", _autoAlpha_get, _autoAlpha_set);</pre>
+  <p>First the get and set functions are created, and then, a new special property is registered. This new special property would be available and be accepted by Tweener from that point on, regardless of Class or Object referred to.</p>
+  <p>For example, to do a fade out with that new special property, it works like this:</p>
+  <pre>Tweener.addTween(myMC, {_autoAlpha:0, time:1});</pre>
+  <p>After fading out, <code>myMC</code> would automatically be set to invisible.</p>
+  <p>As a comparison, the alternative - without using a new special property, and using events to synchronize the visibility change to the tweening start or end, regardless of initial delays - would look like this:</p>
+  <pre>// Fade in
+Tweener.addTween(myMC, {_alpha:100, time:1, onStart:function() { this._visible = true; }});
+
+// Or fade out
+Tweener.addTween(myMC, {_alpha:0, time:1, onComplete:function() { this._visible = false; }});</pre>
+  <p>Also, the additional parameters can be used to create more powerful functions, instead of being forced to duplicate very similar functions and assigning them to specific special properties. For example, let's suppose you have an object with functions <code>getValueX()</code>, <code>getValueY()</code>, and <code>getValueZ()</code>, and their equivalents, <code>setValueX()</code>, <code>setValueY()</code>, and <code>setValueZ()</code>, and you want to create special properties to update those values. With normal special properties, you could write this:</p>
+  <pre>_valueX_get = function(p_obj:Object):Number {
+    return p_obj.getValueX();
+};
+_valueX_set = function(p_obj:Object, p_value:Number):Void {
+    p_obj.setValueX(p_value);
+};
+_valueY_get = function(p_obj:Object):Number {
+    return p_obj.getValueY();
+};
+_valueY_set = function(p_obj:Object, p_value:Number):Void {
+    p_obj.setValueY(p_value);
+};
+_valueZ_get = function(p_obj:Object):Number {
+    return p_obj.getValueZ();
+};
+_valueZ_set = function(p_obj:Object, p_value:Number):Void {
+    p_obj.setValueZ(p_value);
+};
+Tweener.registerSpecialProperty("_valueX", _valueX_get, _valueX_set);
+Tweener.registerSpecialProperty("_valueY", _valueY_get, _valueY_set);
+Tweener.registerSpecialProperty("_valueZ", _valueZ_get, _valueZ_set);</pre>
+<p>This works well, but with parameters, you can write something like so, using only one two functions: </p>
+<pre>_valueAny_get = function(p_obj:Object, p_parameters:Array):Number {
+    return p_obj[p_parameters[0]]();
+};
+_valueAny_set = function(p_obj:Object, p_value:Number, p_parameters:Array):Void {
+    p_obj[p_parameters[1]](p_value);
+};
+Tweener.registerSpecialProperty("_valueX", _valueAny_get, _valueAny_set, ["getValueX", &quot;setValueX&quot;]);
+Tweener.registerSpecialProperty("_valueY", _valueAny_get, _valueAny_set, ["getValueY", &quot;setValueZ&quot;]);
+Tweener.registerSpecialProperty("_valueZ", _valueAny_get, _valueAny_set, ["getValueZ", &quot;setValueZ&quot;]);</pre>
+<!-- InstanceEndEditable -->
+  
+  
+  <h4>See also</h4>
+  <!-- InstanceBeginEditable name="DetailsSeeAlso" -->
+  <p><a href="Tweener_registerSpecialPropertySplitter.html">registerSpecialPropertySplitter</a>, <a href="../properties/index.html">Special Properties</a></p>
+  <!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

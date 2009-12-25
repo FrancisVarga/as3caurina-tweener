@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/default.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Main topics<!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody"><!-- InstanceBeginEditable name="Body" -->
+  <h1>How to use a class </h1>
+  <p>Starting with Actionscript 2, Flash allows you  to write <em>Classes</em>. Classes are pieces of reusable code, used to easily  add new functionality to Actionscript code, to make things easier  and faster. Using a class is a bit like including a file from the old  days of Actionscript, with <code>#include</code>, but there are several big differences in practice.</p>
+  <p>Tweener  itself is also a class. More than that, it uses several different classes  together, for some specific tasks. This kind of specialization - and  the separation of scope - is what make classes the main principle  behind Object Oriented Programming, or OOP.</p>
+  <p>Much like <code>#include</code>  files, you install classes by copying them to a directory and using them. So the first thing you must do when you're installing a class is to decide where you want to put it: a specific project folder, or a global folder.</p>
+  <h2>Using the class globally  </h2>
+  <p>If you're installing a global folder - that is, a <em>global classpath</em> - all of your projects will have access to this same class, so you won't have to copy anything to specific project folders. You'll also be able to update the class globally. For example, on Flash CS3 on a PC, the global class path is usually <code>C:\Program Files\Adobe\Adobe Flash CS3\en\First Run\Classes</code>. Other environments will have similar paths that can be used or will let you specify the global class path.</p>
+  <p>From a <strong>generic</strong> point of view, using global classpaths poses two disadvantages:</p>
+  <ul>
+    <li>If the new, updated class breaks some compatibility with the previous version, all your projects will automatically be broken. You'd need to specify local copies for them, with a previous, working version of the class.</li>
+    <li>Having source files separated from your project make it difficult for you to backup a project  and its source files, or to send them over to somebody (like a client or a partner). You'd need to hunt down all the used class files and copy them over.</li>
+  </ul>
+  <p>Because of this, it's usually recommended to have classes locally.</p>
+  <h2>Using classes locally</h2>
+  <p>You can also have classes on the folder of your project, meaning the same folder as your .FLA file when using the Flash IDE (other environments will have a project folder of its own). As per the default configuration, Flash automatically searches that folder for classes, so everything there will automatically be included on your movie as long as you imported it as classes.</p>
+  <p>The advantage with approach is to have class files that are specific to your project. Source packaging and redistribution is easier, and you're safe from unwanted updates.</p>
+  <p>This is the recommended approach when installing Tweener classes.</p>
+  <h2>Using Tweener classes</h2>
+  <p>So, in Tweener's case, after installing the Tweener  classes (by unzipping the download .zip file on your .FLA's folder, or copying the files over),  you would probably have a list of files as such:</p>
+  <pre>myWebsiteProject.fla
+caurina/transitions/Tweener.as
+caurina/transitions/Equations.as
+...etc</pre>
+  <p>Where "myWebsiteProject.fla" is your hypothetical .FLA file, considering you're working with the Flash IDE.</p>
+  <p>The way folders are structured matter for a class. For example, on Tweener's complete class name is <code>caurina.transitions.Tweener</code>; that's why the <code>Tweener.as</code> file (and all other class files) have to be on folder <code>/caurina/transitions</code>.</p>
+  <p>The <code>caurina</code> name is meant to be something unique, neutral; from a technical standpoint, it doesn't matter much, so it's just part of Tweener's <em>package</em> path.</p>
+  <p>If (and only if) you're using some unusual folder for your class files - something other than the project folder, for example - you have to make sure the correct class directory is listed on the document's <em>classpath</em> - the list of folders Flash will look for when it tries to add a class to the project when compiling. On  the Flash IDE, you can access the document's classpath list by using the  "File" &gt; "Publish Settings" menu, then clicking on the "Settings..."  button next to the Actionscript version combo box. On the window that  opens, make sure the class directory you've chosen is listed.</p>
+  <p>You can also  change your global classpath settings on Flash preferences.</p>
+  <p>After you  have a class installed, and it is acessible from your project, you can  use it when writing Actionscript code. You <strong>can</strong> use classes by just  referring to them, using their complete class path and name. There's no  need to refer to the specific folder where your classes are copied  (other than the complete class name with classpath). For example, to  call a Tweener method, you would do this:</p>
+  <pre>caurina.transitions.Tweener.addTween(mymc, {_alpha:100, time:1});</pre>
+  <p>This is a bit too long, however. Fortunatelly, Flash lets you import classes and reuse them. Like this:</p>
+  <pre>import caurina.transitions.Tweener;
+
+Tweener.addTween(mymc, {_alpha:100, time:1});</pre>
+  <p>On the surface, this works a bit like <code>#include</code>,  but it's more of a declaration that you're gonna use the Class than  anything. It doesn't actually include the contents of the class file  every time you do an import. Instead, it includes the used  class files on the first frame of your movie (or whichever frame you  have chosen to be the class frame).</p>
+  <p>Also, remember that, if you're writing your code on the timeline (as opposed to in a new class), you have to repeat the <code>import</code> line on every new frame or <code>MovieClip</code> scope you intend to call Tweener.</p>
+  <h4>See also</h4>
+  <ul>
+    <li>If you want to know how classes can help you, David Seah has <a href="http://davidseah.com/archives/2005/11/22/explaining-actionscript-20-classes-without-oop/" rel="nofollow">a nice blog post</a> intended to explain classes without using too many jargons. </li>
+    <li>The Flash 8 documentation has a few helpful topics on the subject, such as <a href="http://livedocs.adobe.com/flash/8/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&amp;file=00001312.html#155546" rel="nofollow">About importing class files</a> and <a href="http://livedocs.adobe.com/flash/8/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&amp;file=00001313.html#124861" rel="nofollow">About setting and modifying the classpath</a>. You can also see more pages on the subject <a href="http://livedocs.adobe.com/flash/8/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&amp;file=00001311.html" rel="nofollow">here</a></li>
+  </ul>
+<!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>

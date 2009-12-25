@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/default.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Tweener Documentation and Language Reference</title>
+<!-- InstanceEndEditable -->
+<link href="../style.css" rel="stylesheet" type="text/css">
+<link href="../print.css" rel="stylesheet" type="text/css" media="print">
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body>
+<div id="header">
+  <p>Tweener Documentation</p>
+  <h1><!-- InstanceBeginEditable name="PageType" -->Tweening Parameters <!-- InstanceEndEditable --></h1>
+</div>
+<div class="detailBody"><!-- InstanceBeginEditable name="Body" -->
+  <h1>Introduction</h1>
+  <p><em>Tweening parameters</em> are properties that are available when creating a new tweening with the <code><a href="../methods/Tweener_addTween.html">addTween</a></code> or <code><a href="../methods/Tweener_addCaller.html">addCaller</a></code> methods. Because both these methods rely on <em>loose</em> objects for their parameters, it's important to remember the name of the available parameters. For example:</p>
+  <pre><span class="secondary">// Slide a movieclip to a new position in 0.5 seconds (AS2)
+Tweener.addTween(myMovieClip, {_x:10, </span><strong>time:0.5, transition:&quot;linear&quot;</strong><span class="secondary">});</span></pre>
+  <p>On the above example, the highlighted part make up the parameters used - that is, the transition <code>time</code> is set to 0.5 seconds, and the current <code>transition</code> should be <code>linear</code>.</p>
+  <p>Many other parameters can be used, though, and all of them are optional. Use the reference below (or at the menu on the left) for an explanation of each parameter, and its uses, as well as examples.</p>
+  <table class="summaryTable" cellpadding="3" cellspacing="0">
+    <tr>
+      <th>Parameter name </th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Methods in which it is used</th>
+    </tr>
+    <tr class="row0">
+      <td><a href="base.html">base</a></td>
+      <td>Object or Array </td>
+      <td>An array OR an object containing properties and parameters to declare a new tweening.</td>
+      <td><a href="../methods/Tweener_addTween.html">addTween</a>, <a href="../methods/Tweener_addCaller.html">addCaller</a></td>
+    </tr>
+    <tr class="row1">
+      <td><a href="count.html">count</a></td>
+      <td>Number</td>
+      <td>How many times you want the <code>onUpdate</code> function of an <code>addCaller</code> tweening to be called.</td>
+      <td><a href="../methods/Tweener_addCaller.html">addCaller</a></td>
+    </tr>
+    <tr class="row0">
+      <td><a href="delay.html">delay</a></td>
+      <td>Number</td>
+      <td>How much time the transition must wait before it starts.</td>
+      <td><a href="../methods/Tweener_addTween.html">addTween</a>, <a href="../methods/Tweener_addCaller.html">addCaller</a></td>
+    </tr>
+    <tr class="row1">
+      <td><a href="onComplete.html">onComplete</a></td>
+      <td>Function</td>
+      <td>A function that is called immediately after a tweening is completed.</td>
+      <td><a href="../methods/Tweener_addTween.html">addTween</a>, <a href="../methods/Tweener_addCaller.html">addCaller</a></td>
+    </tr>
+    <tr class="row0">
+      <td><a href="onCompleteParams.html">onCompleteParams</a></td>
+      <td>Array</td>
+      <td>A list of parameters (of any type) to be passed to the <code>onComplete</code> function.</td>
+      <td><a href="../methods/Tweener_addTween.html">addTween</a>, <a href="../methods/Tweener_addCaller.html">addCaller</a></td>
+    </tr>
+    <tr class="row1">
+      <td><a href="onError.html">onError</a></td>
+      <td>Function</td>
+      <td>A function that gets called when an error occurs when trying to run a tweening.</td>
+      <td><a href="../methods/Tweener_addTween.html">addTween</a>, <a href="../methods/Tweener_addCaller.html">addCaller</a></td>
+    </tr>
+    <tr class="row0">
+      <td><a href="onOverwrite.html">onOverwrite</a></td>
+      <td>Function</td>
+      <td>A function that is called when tweening is overwritten.</td>
+      <td><a href="../methods/Tweener_addTween.html">addTween</a>, <a href="../methods/Tweener_addCaller.html">addCaller</a></td>
+    </tr>
+    <tr class="row1">
+      <td><a href="onOverwriteParams.html">onOverwriteParams</a></td>
+      <td>Array</td>
+      <td>A list of parameters (of any type) to be passed to the <code>onOverwrite</code> function.</td>
+      <td><a href="../methods/Tweener_addTween.html">addTween</a>, <a href="../methods/Tweener_addCaller.html">addCaller</a></td>
+    </tr>
+    <tr class="row0">
+      <td><a href="onStart.html">onStart</a></td>
+      <td>Function</td>
+      <td>A function that is called immediately before a tweening starts.</td>
+      <td><a href="../methods/Tweener_addTween.html">addTween</a>, <a href="../methods/Tweener_addCaller.html">addCaller</a></td>
+    </tr>
+    <tr class="row1">
+      <td><a href="onStartParams.html">onStartParams</a></td>
+      <td>Array</td>
+      <td>A list of parameters (of any type) to be passed to the <code>onStart</code> function.</td>
+      <td><a href="../methods/Tweener_addTween.html">addTween</a>, <a href="../methods/Tweener_addCaller.html">addCaller</a></td>
+    </tr>
+    <tr class="row0">
+      <td><a href="onUpdate.html">onUpdate</a></td>
+      <td>Function</td>
+      <td>A function that is called every time a tweening updates its properties.</td>
+      <td><a href="../methods/Tweener_addTween.html">addTween</a>, <a href="../methods/Tweener_addCaller.html">addCaller</a></td>
+    </tr>
+    <tr class="row1">
+      <td><a href="onUpdateParams.html">onUpdateParams</a></td>
+      <td>Array</td>
+      <td>A list of parameters (of any type) to be passed to the <code>onUpdate</code> function.</td>
+      <td><a href="../methods/Tweener_addTween.html">addTween</a>, <a href="../methods/Tweener_addCaller.html">addCaller</a></td>
+    </tr>
+    <tr class="row0">
+      <td><a href="overwrite.html">overwrite</a></td>
+      <td>Boolean</td>
+      <td>Whether or not the new tween will overwrite other activate tweens that are applied to the same object, on the same property, and which overlap the time the new tween will take.</td>
+      <td><a href="../methods/Tweener_addTween.html">addTween</a></td>
+    </tr>
+    <tr class="row1">
+      <td><a href="rounded.html">rounded</a></td>
+      <td>Boolean</td>
+      <td>Whether or not the values for this tweening must be rounded before  being applied to their respective properties.</td>
+      <td><a href="../methods/Tweener_addTween.html">addTween</a>, <a href="../methods/Tweener_addCaller.html">addCaller</a></td>
+    </tr>
+    <tr class="row0">
+      <td><a href="skipUpdates.html">skipUpdates</a></td>
+      <td>Number</td>
+      <td>How many updates must be skipped before an actual update is made.</td>
+      <td><a href="../methods/Tweener_addTween.html">addTween</a></td>
+    </tr>
+    <tr class="row1">
+      <td><a href="time.html">time</a></td>
+      <td>Number</td>
+      <td>How long a transition will take.</td>
+      <td><a href="../methods/Tweener_addTween.html">addTween</a>, <a href="../methods/Tweener_addCaller.html">addCaller</a></td>
+    </tr>
+    <tr class="row0">
+      <td><a href="transition.html">transition</a></td>
+      <td>String or Function</td>
+      <td>The <a href="../misc/transitions.html">type of transition</a> to use.</td>
+      <td><a href="../methods/Tweener_addTween.html">addTween</a>, <a href="../methods/Tweener_addCaller.html">addCaller</a></td>
+    </tr>
+    <tr class="row1">
+      <td><a href="useFrames.html">useFrames</a></td>
+      <td>Boolean</td>
+      <td> Whether the engine should use the a frame counter or a time counter for a given tweening.</td>
+      <td><a href="../methods/Tweener_addCaller.html">addCaller</a></td>
+    </tr>
+    <tr class="row0">
+      <td><a href="waitFrames.html">waitFrames</a></td>
+      <td>Boolean</td>
+      <td>Whether the engine should wait at least one frame before executing a new <code>onUpdate</code> function for an <code>addCaller</code> tweening or not.</td>
+      <td><a href="../methods/Tweener_addTween.html">addTween</a>, <a href="../methods/Tweener_addCaller.html">addCaller</a><a href="../methods/Tweener_addCaller.html"></a></td>
+    </tr>
+  </table>
+<!-- InstanceEndEditable --></div>
+</body>
+<!-- -->
+<!-- InstanceEnd --></html>
